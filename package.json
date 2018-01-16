@@ -1,0 +1,82 @@
+{
+  "name": "html-links",
+  "description": "Get all links from a HTML markup",
+  "homepage": "https://documentup.com/Kikobeats/html-links",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "author": {
+    "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
+    "url": "https://kikobeats.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kikobeats/html-links.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kikobeats/html-links/issues"
+  },
+  "keywords": [
+    "href",
+    "hrefs",
+    "html",
+    "link",
+    "links",
+    "src",
+    "url",
+    "urls"
+  ],
+  "dependencies": {
+    "@metascraper/helpers": "~3.4.3",
+    "cheerio": "~1.0.0-rc.2",
+    "lodash": "~4.17.4",
+    "url-pattern": "~1.0.3"
+  },
+  "devDependencies": {
+    "chalk": "~2.3.0",
+    "coveralls": "latest",
+    "finepack": "latest",
+    "git-dirty": "latest",
+    "got": "~8.0.2",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "prettier-standard": "latest",
+    "should": "latest",
+    "snap-shot": "latest",
+    "standard": "latest",
+    "standard-markdown": "latest"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "standard-markdown && standard",
+    "precommit": "lint-staged",
+    "pretest": "npm run lint",
+    "pretty": "prettier-standard index.js {core,test,bin}/**/*.js --single-quote",
+    "test": "nyc mocha"
+  },
+  "license": "MIT",
+  "lint-staged": {
+    "package.json": [
+      "finepack",
+      "git add"
+    ],
+    "*.js": [
+      "prettier-standard",
+      "git add"
+    ]
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}
