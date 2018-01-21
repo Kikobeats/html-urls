@@ -8,7 +8,7 @@
 [![NPM Status](https://img.shields.io/npm/dm/html-links.svg?style=flat-square)](https://www.npmjs.org/package/html-links)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
-> Get all links from a HTML markup.
+> Get all links from a HTML markup. It's based on [W3C link checker](https://github.com/w3c/node-linkchecker).
 
 ## Install
 
