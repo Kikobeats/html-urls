@@ -1,7 +1,7 @@
 {
-  "name": "html-links",
+  "name": "html-urls",
   "description": "Get all links from a HTML markup",
-  "homepage": "https://documentup.com/Kikobeats/html-links",
+  "homepage": "https://documentup.com/Kikobeats/html-urls",
   "version": "1.0.0",
   "main": "src/index.js",
   "author": {
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kikobeats/html-links.git"
+    "url": "git+https://github.com/Kikobeats/html-urls.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/html-links/issues"
+    "url": "https://github.com/Kikobeats/html-urls/issues"
   },
   "keywords": [
     "href",
