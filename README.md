@@ -28,7 +28,7 @@ const getLinks = require('html-links')
   const {body: html} = await got(url)
   const links = getLinks({html, url})
 
-  console.log(links)
+  links.forEach(({ url, normalizeUrl }, index) => console.log(normalizeUrl))
 
   // => [
   //   'https://microlink.io/component---src-layouts-index-js-86b5f94dfa48cb04ae41.js',

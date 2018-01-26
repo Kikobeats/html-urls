@@ -15,8 +15,8 @@ const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
   if (isEmpty(attr)) return null
   return Object.assign({
-    normalized: getUrl(url, attr),
-    origin: attr
+    normalizeUrl: getUrl(url, attr),
+    url: attr
   })
 }
 
@@ -57,12 +57,12 @@ const addLinksByAttribute = ({ $, tags, attribute, url, blackListPattern }) => {
 
       const isAlreadyAdded = includes(
         acc,
-        item => getUrl(item.normalized) === link.normalized
+        item => getUrl(item.normalizeUrl) === link.normalizeUrl
       )
       if (isAlreadyAdded) return acc
 
       const isBlacklist = includes(blackListPattern, pattern =>
-        pattern.test(link.normalized)
+        pattern.test(link.normalizeUrl)
       )
       if (!isBlacklist) acc.push(link)
 

@@ -1,72 +1,72 @@
 exports['get links from a semantic markup 1'] = [
   {
-    "normalized": "https://google.com",
-    "origin": "https://google.com"
+    "normalizeUrl": "https://google.com",
+    "url": "https://google.com"
   },
   {
-    "normalized": "https://facebook.com",
-    "origin": "https://facebook.com"
+    "normalizeUrl": "https://facebook.com",
+    "url": "https://facebook.com"
   }
 ]
 
 exports['remove duplicate links 1'] = [
   {
-    "normalized": "https://google.com",
-    "origin": "https://google.com"
+    "normalizeUrl": "https://google.com",
+    "url": "https://google.com"
   },
   {
-    "normalized": "https://facebook.com",
-    "origin": "https://facebook.com"
+    "normalizeUrl": "https://facebook.com",
+    "url": "https://facebook.com"
   }
 ]
 
 exports['final slash doesnt matter 1'] = [
   {
-    "normalized": "https://google.com",
-    "origin": "https://google.com/"
+    "normalizeUrl": "https://google.com",
+    "url": "https://google.com/"
   },
   {
-    "normalized": "https://facebook.com",
-    "origin": "https://facebook.com"
+    "normalizeUrl": "https://facebook.com",
+    "url": "https://facebook.com"
   }
 ]
 
 exports['query string parameters position are not relevant 1'] = [
   {
-    "normalized": "https://google.com/?foo=bar&hello=world",
-    "origin": "https://google.com?hello=world&foo=bar"
+    "normalizeUrl": "https://google.com/?foo=bar&hello=world",
+    "url": "https://google.com?hello=world&foo=bar"
   },
   {
-    "normalized": "https://facebook.com",
-    "origin": "https://facebook.com"
+    "normalizeUrl": "https://facebook.com",
+    "url": "https://facebook.com"
   }
 ]
 
 exports['tag `link` support 1'] = [
   {
-    "normalized": "https://microlink.io/default.css",
-    "origin": "default.css"
+    "normalizeUrl": "https://microlink.io/default.css",
+    "url": "default.css"
   }
 ]
 
 exports['resolve relative links 1'] = [
   {
-    "normalized": "https://microlink.io/login",
-    "origin": "/login"
+    "normalizeUrl": "https://microlink.io/login",
+    "url": "/login"
   }
 ]
 
 exports['string support 1'] = [
   {
-    "normalized": "https://facebook.com",
-    "origin": "https://facebook.com"
+    "normalizeUrl": "https://facebook.com",
+    "url": "https://facebook.com"
   }
 ]
 
 exports['regex support 1'] = [
   {
-    "normalized": "https://facebook.com",
-    "origin": "https://facebook.com"
+    "normalizeUrl": "https://facebook.com",
+    "url": "https://facebook.com"
   }
 ]
 
