@@ -1,3 +1,14 @@
+<a name="1.0.1"></a>
+## 1.0.1 (2018-01-26)
+
+* Rename ([0927b08](https://github.com/Kikobeats/html-urls/commit/0927b08))
+* Rename interface ([df7e07f](https://github.com/Kikobeats/html-urls/commit/df7e07f))
+* Update README.md ([d70a3f1](https://github.com/Kikobeats/html-urls/commit/d70a3f1))
+* fix(package): update @metascraper/helpers to version 3.5.0 ([6e91e1f](https://github.com/Kikobeats/html-urls/commit/6e91e1f))
+* fix(package): update @metascraper/helpers to version 3.6.0 ([6ea3c71](https://github.com/Kikobeats/html-urls/commit/6ea3c71))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2018-01-16)
 
