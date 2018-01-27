@@ -1,3 +1,10 @@
+<a name="1.0.2"></a>
+## 1.0.2 (2018-01-27)
+
+* Rename blacklist → whitelist ([0891b36](https://github.com/Kikobeats/html-urls/commit/0891b36))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2018-01-26)
 
