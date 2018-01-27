@@ -72,7 +72,7 @@ const addLinksByAttribute = ({ $, tags, attribute, url, whitelistPattern }) => {
   )
 }
 
-const analyzeLinks = ({ html = '', url = '', whitelist = [] } = {}) => {
+module.exports = ({ html = '', url = '', whitelist = [] } = {}) => {
   const $ = cheerio.load(html)
   const whitelistPattern = map(whitelist, urlPattern)
 
@@ -92,5 +92,3 @@ const analyzeLinks = ({ html = '', url = '', whitelist = [] } = {}) => {
     []
   )
 }
-
-module.exports = analyzeLinks
