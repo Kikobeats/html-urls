@@ -141,7 +141,7 @@ describe('html links', () => {
     })
   })
 
-  describe('blacklist', () => {
+  describe('whitelist', () => {
     it('string support', () => {
       const html = `
       <!DOCTYPE html>
@@ -159,7 +159,7 @@ describe('html links', () => {
       </body>
       </html>
       `
-      snapshot(getLinks({ html, blacklist: ['https://google.com'] }))
+      snapshot(getLinks({ html, whitelist: ['https://google.com'] }))
     })
 
     it('regex support', () => {
@@ -179,7 +179,7 @@ describe('html links', () => {
       </body>
       </html>
       `
-      snapshot(getLinks({ html, blacklist: ['https://google.*'] }))
+      snapshot(getLinks({ html, whitelist: ['https://google.*'] }))
     })
   })
 })

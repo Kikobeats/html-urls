@@ -47,7 +47,7 @@ const linksAttr = {
   ]
 }
 
-const addLinksByAttribute = ({ $, tags, attribute, url, blackListPattern }) => {
+const addLinksByAttribute = ({ $, tags, attribute, url, whitelistPattern }) => {
   const selector = $(tags.join(','))
   return reduceSelector(
     selector,
@@ -61,10 +61,10 @@ const addLinksByAttribute = ({ $, tags, attribute, url, blackListPattern }) => {
       )
       if (isAlreadyAdded) return acc
 
-      const isBlacklist = includes(blackListPattern, pattern =>
+      const isWhitelist = includes(whitelistPattern, pattern =>
         pattern.test(link.normalizeUrl)
       )
-      if (!isBlacklist) acc.push(link)
+      if (!isWhitelist) acc.push(link)
 
       return acc
     },
@@ -72,9 +72,9 @@ const addLinksByAttribute = ({ $, tags, attribute, url, blackListPattern }) => {
   )
 }
 
-const analyzeLinks = ({ html = '', url = '', blacklist = [] } = {}) => {
+const analyzeLinks = ({ html = '', url = '', whitelist = [] } = {}) => {
   const $ = cheerio.load(html)
-  const blackListPattern = map(blacklist, urlPattern)
+  const whitelistPattern = map(whitelist, urlPattern)
 
   return reduce(
     linksAttr,
@@ -84,7 +84,7 @@ const analyzeLinks = ({ html = '', url = '', blacklist = [] } = {}) => {
         tags,
         attribute,
         url,
-        blackListPattern
+        whitelistPattern
       })
       acc = acc.concat(links)
       return acc
