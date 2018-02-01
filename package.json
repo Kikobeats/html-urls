@@ -30,7 +30,7 @@
     "@metascraper/helpers": "~3.6.0",
     "cheerio": "~1.0.0-rc.2",
     "lodash": "~4.17.4",
-    "url-pattern": "~1.0.3"
+    "matcher": "~1.0.0"
   },
   "devDependencies": {
     "chalk": "~2.3.0",

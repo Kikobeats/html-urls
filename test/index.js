@@ -93,44 +93,68 @@ describe('html links', () => {
   })
 
   describe('whitelist', () => {
-    it('string support', () => {
-      const html = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>hello world</title>
-      </head>
-      <body>
-        <a href="https://google.com">google</a>
-        <a href="https://google.com">google</a>
-        <a href="https://facebook.com">facebook</a>
-      </body>
-      </html>
-      `
-      snapshot(getLinks({ html, whitelist: ['https://google.com'] }))
+    it('exclude exact match', () => {
+      const urls = [
+        'https://indiehackers.com/images/favicons/favicon',
+        'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173',
+        'https://indiehackers.com/assets/indie-hackers-12c4cfc88599dcf564ce2d9f226133.css',
+        'https://indiehackers.com/feed.xml',
+        'https://indiehackers.com'
+      ]
+
+      const html = generateHtml({ urls })
+      const whitelist = ['https://indiehackers.com']
+      const htmlUrls = getLinks({ html, whitelist }).map(
+        ({ normalizeUrl }) => normalizeUrl
+      )
+
+      should(htmlUrls).be.eql([
+        'https://indiehackers.com/images/favicons/favicon',
+        'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173',
+        'https://indiehackers.com/assets/indie-hackers-12c4cfc88599dcf564ce2d9f226133.css',
+        'https://indiehackers.com/feed.xml'
+      ])
     })
 
-    it('regex support', () => {
-      const html = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>hello world</title>
-      </head>
-      <body>
-        <a href="https://google.es">google</a>
-        <a href="https://google.com">google</a>
-        <a href="https://facebook.com">facebook</a>
-      </body>
-      </html>
-      `
-      snapshot(getLinks({ html, whitelist: ['https://google.*'] }))
+    it('exclude pattern', () => {
+      const urls = [
+        'https://indiehackers.com/images/favicons/favicon',
+        'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173',
+        'https://indiehackers.com/assets/indie-hackers-12c4cfc88599dcf564ce2d9f226133.css',
+        'https://indiehackers.com/feed.xml',
+        'https://indiehackers.com'
+      ]
+
+      const html = generateHtml({ urls })
+      const whitelist = ['https://indiehackers.com*']
+      const htmlUrls = getLinks({ html, whitelist }).map(
+        ({ normalizeUrl }) => normalizeUrl
+      )
+
+      should(htmlUrls).be.eql([
+        'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173'
+      ])
+    })
+
+    it('exclude multiple pattern', () => {
+      const urls = [
+        'https://indiehackers.com/images/favicons/favicon',
+        'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173',
+        'https://indiehackers.com/assets/indie-hackers-12c4cfc88599dcf564ce2d9f226133.css',
+        'https://indiehackers.com/feed.xml',
+        'https://indiehackers.com'
+      ]
+
+      const html = generateHtml({ urls })
+      const whitelist = [
+        'https://indiehackers.com**',
+        'https://www.indiehackers.com**'
+      ]
+      const htmlUrls = getLinks({ html, whitelist }).map(
+        ({ normalizeUrl }) => normalizeUrl
+      )
+
+      should(htmlUrls).be.eql([])
     })
   })
 })

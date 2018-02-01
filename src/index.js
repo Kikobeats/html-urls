@@ -1,6 +1,7 @@
-const { isEmpty, reduce, map, get, findIndex } = require('lodash')
+const { isEmpty, reduce, get, findIndex } = require('lodash')
 const { getUrl } = require('@metascraper/helpers')
 const cheerio = require('cheerio')
+const matcher = require('matcher')
 
 const reduceSelector = (collection, fn, acc = []) => {
   collection.each(function (index, element) {
@@ -19,8 +20,6 @@ const getLink = ({ url, el, attribute }) => {
     url: attr
   })
 }
-
-const urlPattern = str => new RegExp(str, 'i')
 
 const linksAttr = {
   background: ['body'],
@@ -47,7 +46,7 @@ const linksAttr = {
   ]
 }
 
-const addLinksByAttribute = ({ $, tags, attribute, url, whitelistPattern }) => {
+const addLinksByAttribute = ({ $, tags, attribute, url, whitelist }) => {
   const selector = $(tags.join(','))
   return reduceSelector(
     selector,
@@ -61,10 +60,8 @@ const addLinksByAttribute = ({ $, tags, attribute, url, whitelistPattern }) => {
       )
       if (isAlreadyAdded) return acc
 
-      const isWhitelist = includes(whitelistPattern, pattern =>
-        pattern.test(link.normalizeUrl)
-      )
-      if (!isWhitelist) acc.push(link)
+      const match = whitelist && matcher([link.normalizeUrl], whitelist)
+      if (isEmpty(match)) acc.push(link)
 
       return acc
     },
@@ -74,7 +71,6 @@ const addLinksByAttribute = ({ $, tags, attribute, url, whitelistPattern }) => {
 
 module.exports = ({ html = '', url = '', whitelist = [] } = {}) => {
   const $ = cheerio.load(html)
-  const whitelistPattern = map(whitelist, urlPattern)
 
   return reduce(
     linksAttr,
@@ -84,7 +80,7 @@ module.exports = ({ html = '', url = '', whitelist = [] } = {}) => {
         tags,
         attribute,
         url,
-        whitelistPattern
+        whitelist: !isEmpty(whitelist) ? whitelist : false
       })
       acc = acc.concat(links)
       return acc
