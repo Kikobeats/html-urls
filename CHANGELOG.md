@@ -1,3 +1,11 @@
+<a name="1.0.4"></a>
+## 1.0.4 (2018-02-01)
+
+* Add html helper for testing ([e3238ea](https://github.com/Kikobeats/html-urls/commit/e3238ea))
+* Improve whitelist support ([1c773f1](https://github.com/Kikobeats/html-urls/commit/1c773f1))
+
+
+
 <a name="1.0.3"></a>
 ## 1.0.3 (2018-01-27)
 
