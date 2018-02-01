@@ -4,6 +4,7 @@ const snapshot = require('snap-shot')
 const should = require('should')
 
 const getLinks = require('..')
+const { generateHtml } = require('./helpers')
 
 describe('html links', () => {
   it('empty html generate empty output', () => {
@@ -12,84 +13,46 @@ describe('html links', () => {
   })
 
   it('get links from a semantic markup', () => {
-    const html = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>hello world</title>
-    </head>
-    <body>
-      <a href="https://google.com">google</a>
-      <a href="https://facebook.com">facebook</a>
-    </body>
-    </html>
-    `
+    const html = generateHtml({
+      urls: ['https://google.com', 'https://facebook.com']
+    })
 
     snapshot(getLinks({ html }))
   })
 
   describe('normalization', () => {
     it('remove duplicate links', () => {
-      const html = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>hello world</title>
-      </head>
-      <body>
-        <a href="https://google.com">google</a>
-        <a href="https://google.com">google</a>
-        <a href="https://facebook.com">facebook</a>
-      </body>
-      </html>
-      `
+      const html = generateHtml({
+        urls: [
+          'https://google.com',
+          'https://google.com',
+          'https://facebook.com'
+        ]
+      })
 
       snapshot(getLinks({ html }))
     })
 
     it('final slash doesnt matter', () => {
-      const html = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>hello world</title>
-      </head>
-      <body>
-        <a href="https://google.com/">google</a>
-        <a href="https://google.com">google</a>
-        <a href="https://facebook.com">facebook</a>
-      </body>
-      </html>
-      `
+      const html = generateHtml({
+        urls: [
+          'https://google.com/',
+          'https://google.com',
+          'https://facebook.com'
+        ]
+      })
+
       snapshot(getLinks({ html }))
     })
 
     it('query string parameters position are not relevant', () => {
-      const html = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>hello world</title>
-      </head>
-      <body>
-        <a href="https://google.com?hello=world&foo=bar">google</a>
-        <a href="https://google.com?foo=bar&hello=world">google</a>
-        <a href="https://facebook.com">facebook</a>
-      </body>
-      </html>
-      `
+      const html = generateHtml({
+        urls: [
+          'https://google.com?hello=world&foo=bar',
+          'https://google.com?foo=bar&hello=world',
+          'https://facebook.com'
+        ]
+      })
 
       snapshot(getLinks({ html }))
     })
@@ -98,22 +61,10 @@ describe('html links', () => {
   describe('selector', () => {
     describe('tag `a` support', () => {
       it('resolve relative links', () => {
-        const html = `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta http-equiv="X-UA-Compatible" content="ie=edge">
-          <title>hello world</title>
-        </head>
-        <body>
-          <a href="/login">login</a>
-        </body>
-        </html>
-        `
-
         const url = 'https://microlink.io'
+        const html = generateHtml({
+          urls: ['/login']
+        })
 
         snapshot(getLinks({ html, url }))
       })
