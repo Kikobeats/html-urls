@@ -37,7 +37,7 @@
     "coveralls": "latest",
     "finepack": "latest",
     "git-dirty": "latest",
-    "got": "~8.2.0",
+    "got": "~8.3.0",
     "husky": "latest",
     "lint-staged": "latest",
     "mocha": "latest",
