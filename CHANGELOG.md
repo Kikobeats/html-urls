@@ -1,3 +1,19 @@
+<a name="1.0.5"></a>
+## 1.0.5 (2018-04-29)
+
+* Little Refactor ([ae4271b](https://github.com/Kikobeats/html-urls/commit/ae4271b))
+* Update fixtures ([d734a0f](https://github.com/Kikobeats/html-urls/commit/d734a0f))
+* fix(package): update @metascraper/helpers to version 3.10.7 ([82afd42](https://github.com/Kikobeats/html-urls/commit/82afd42))
+* fix(package): update @metascraper/helpers to version 3.8.0 ([71bdece](https://github.com/Kikobeats/html-urls/commit/71bdece))
+* fix(package): update @metascraper/helpers to version 3.9.2 ([fd920f7](https://github.com/Kikobeats/html-urls/commit/fd920f7))
+* fix(package): update matcher to version 1.1.0 ([04d1be8](https://github.com/Kikobeats/html-urls/commit/04d1be8))
+* chore(package): update chalk to version 2.4.0 ([7b9f93e](https://github.com/Kikobeats/html-urls/commit/7b9f93e))
+* chore(package): update got to version 8.1.0 ([eb8e729](https://github.com/Kikobeats/html-urls/commit/eb8e729))
+* chore(package): update got to version 8.2.0 ([ac10519](https://github.com/Kikobeats/html-urls/commit/ac10519))
+* chore(package): update got to version 8.3.0 ([28f053b](https://github.com/Kikobeats/html-urls/commit/28f053b))
+
+
+
 <a name="1.0.4"></a>
 ## 1.0.4 (2018-02-01)
 
