@@ -1,27 +1,14 @@
-const { isEmpty, reduce, get, findIndex } = require('lodash')
+const { concat, isEmpty, reduce, get, findIndex } = require('lodash')
 const { getUrl } = require('@metascraper/helpers')
 const cheerio = require('cheerio')
 const matcher = require('matcher')
 
-const reduceSelector = (collection, fn, acc = []) => {
-  collection.each(function (index, element) {
-    acc = fn(acc, this)
-  })
-  return acc
+const NORMALIZED_URL_OPTS = {
+  stripFragment: false,
+  stripWWW: false
 }
 
-const includes = (collection, fn) => findIndex(collection, fn) !== -1
-
-const getLink = ({ url, el, attribute }) => {
-  const attr = get(el, `attribs.${attribute}`, '')
-  if (isEmpty(attr)) return null
-  return Object.assign({
-    normalizeUrl: getUrl(url, attr),
-    url: attr
-  })
-}
-
-const linksAttr = {
+const LINKS_ATTRIBUTES = {
   background: ['body'],
   cite: ['blockquote', 'del', 'ins', 'q'],
   data: ['object'],
@@ -46,17 +33,36 @@ const linksAttr = {
   ]
 }
 
-const addLinksByAttribute = ({ $, tags, attribute, url, whitelist }) => {
-  const selector = $(tags.join(','))
+const reduceSelector = (collection, fn, acc = []) => {
+  collection.each(function (index, element) {
+    acc = fn(acc, this)
+  })
+  return acc
+}
+
+const includes = (collection, fn) => findIndex(collection, fn) !== -1
+
+const getLink = ({ url, el, attribute }) => {
+  const attr = get(el, `attribs.${attribute}`, '')
+  if (isEmpty(attr)) return null
+
+  return Object.assign({
+    url: attr,
+    normalizeUrl: getUrl(url, attr, NORMALIZED_URL_OPTS)
+  })
+}
+
+const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {
   return reduceSelector(
     selector,
     (acc, el) => {
       const link = getLink({ url, el, attribute })
+
       if (isEmpty(link)) return acc
 
       const isAlreadyAdded = includes(
         acc,
-        item => getUrl(item.normalizeUrl) === link.normalizeUrl
+        item => item.normalizeUrl === link.normalizeUrl
       )
       if (isAlreadyAdded) return acc
 
@@ -69,21 +75,20 @@ const addLinksByAttribute = ({ $, tags, attribute, url, whitelist }) => {
   )
 }
 
-module.exports = ({ html = '', url = '', whitelist = [] } = {}) => {
+module.exports = ({ html = '', url = '', whitelist = false } = {}) => {
   const $ = cheerio.load(html)
 
   return reduce(
-    linksAttr,
-    (acc, tags, attribute) => {
-      const links = addLinksByAttribute({
-        $,
-        tags,
+    LINKS_ATTRIBUTES,
+    (acc, htmlTags, attribute) => {
+      const links = getLinksByAttribute({
+        selector: $(htmlTags.join(',')),
         attribute,
         url,
-        whitelist: !isEmpty(whitelist) ? whitelist : false
+        whitelist
       })
-      acc = acc.concat(links)
-      return acc
+
+      return concat(acc, links)
     },
     []
   )
