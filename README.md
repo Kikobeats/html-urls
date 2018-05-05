@@ -66,7 +66,7 @@ The URL associated with the HTML markup.
 
 It is used for resolve relative links that can be present in the HTML markup.
 
-##### backlist
+##### whitelist
 
 Type: `array`<br>
 Default: `[]`
