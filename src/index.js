@@ -3,11 +3,6 @@ const { getUrl } = require('@metascraper/helpers')
 const cheerio = require('cheerio')
 const matcher = require('matcher')
 
-const NORMALIZED_URL_OPTS = {
-  stripFragment: false,
-  stripWWW: false
-}
-
 const LINKS_ATTRIBUTES = {
   background: ['body'],
   cite: ['blockquote', 'del', 'ins', 'q'],
@@ -48,7 +43,7 @@ const getLink = ({ url, el, attribute }) => {
 
   return Object.assign({
     url: attr,
-    normalizeUrl: getUrl(url, attr, NORMALIZED_URL_OPTS)
+    normalizeUrl: getUrl(url, attr)
   })
 }
 

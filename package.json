@@ -27,17 +27,17 @@
     "urls"
   ],
   "dependencies": {
-    "@metascraper/helpers": "~3.11.4",
+    "@metascraper/helpers": "~3.11.5",
     "cheerio": "~1.0.0-rc.2",
-    "lodash": "~4.17.4",
-    "matcher": "~1.1.0"
+    "lodash": "~4.17.10",
+    "matcher": "~1.1.1"
   },
   "devDependencies": {
-    "chalk": "~2.4.0",
+    "chalk": "~2.4.1",
     "coveralls": "latest",
     "finepack": "latest",
     "git-dirty": "latest",
-    "got": "~8.3.0",
+    "got": "~8.3.1",
     "husky": "latest",
     "lint-staged": "latest",
     "mocha": "latest",
