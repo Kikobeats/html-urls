@@ -7,6 +7,5 @@ const got = require('got')
   if (!url) throw new TypeError('Need to provide an url as first argument.')
   const { body: html } = await got(url)
   const links = getLinks({ html, url })
-
-  links.forEach(({ normalized, origin }, index) => console.log(normalized))
+  links.forEach(link => console.log(link.normalizeUrl))
 })()
