@@ -1,3 +1,12 @@
+<a name="1.0.6"></a>
+## 1.0.6 (2018-05-29)
+
+* Update ([a352247](https://github.com/Kikobeats/html-urls/commit/a352247))
+* Update README.md ([b04bf62](https://github.com/Kikobeats/html-urls/commit/b04bf62))
+* fix(package): update @metascraper/helpers to version 3.11.4 ([7ae9fd7](https://github.com/Kikobeats/html-urls/commit/7ae9fd7))
+
+
+
 <a name="1.0.5"></a>
 ## 1.0.5 (2018-04-29)
 
