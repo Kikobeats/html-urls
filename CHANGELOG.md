@@ -1,3 +1,10 @@
+<a name="1.0.7"></a>
+## 1.0.7 (2018-05-29)
+
+* Update deps ([bb89028](https://github.com/Kikobeats/html-urls/commit/bb89028))
+
+
+
 <a name="1.0.6"></a>
 ## 1.0.6 (2018-05-29)
 
