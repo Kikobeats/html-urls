@@ -1,3 +1,10 @@
+<a name="1.0.8"></a>
+## 1.0.8 (2018-05-30)
+
+* Refactor ([7da0187](https://github.com/Kikobeats/html-urls/commit/7da0187))
+
+
+
 <a name="1.0.7"></a>
 ## 1.0.7 (2018-05-29)
 
