@@ -1,3 +1,5 @@
+'use strict'
+
 const { concat, isEmpty, reduce, get, findIndex } = require('lodash')
 const { getUrl } = require('@metascraper/helpers')
 const cheerio = require('cheerio')
@@ -39,12 +41,12 @@ const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
-  if (isEmpty(attr)) return null
-
-  return Object.assign({
-    url: attr,
-    normalizeUrl: getUrl(url, attr)
-  })
+  return isEmpty(attr)
+    ? null
+    : Object.assign({
+      url: attr,
+      normalizeUrl: getUrl(url, attr)
+    })
 }
 
 const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {
@@ -52,19 +54,14 @@ const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {
     selector,
     (acc, el) => {
       const link = getLink({ url, el, attribute })
-
       if (isEmpty(link)) return acc
-
       const isAlreadyAdded = includes(
         acc,
         item => item.normalizeUrl === link.normalizeUrl
       )
       if (isAlreadyAdded) return acc
-
       const match = whitelist && matcher([link.normalizeUrl], whitelist)
-      if (isEmpty(match)) acc.push(link)
-
-      return acc
+      return isEmpty(match) ? concat(acc, link) : acc
     },
     []
   )
@@ -82,7 +79,6 @@ module.exports = ({ html = '', url = '', whitelist = false } = {}) => {
         url,
         whitelist
       })
-
       return concat(acc, links)
     },
     []
