@@ -1,3 +1,10 @@
+<a name="1.0.9"></a>
+## 1.0.9 (2018-06-21)
+
+* Expose tags and cheerio opts ([9c27283](https://github.com/Kikobeats/html-urls/commit/9c27283))
+
+
+
 <a name="1.0.8"></a>
 ## 1.0.8 (2018-05-30)
 
