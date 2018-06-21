@@ -5,7 +5,7 @@ const { getUrl } = require('@metascraper/helpers')
 const cheerio = require('cheerio')
 const matcher = require('matcher')
 
-const LINKS_ATTRIBUTES = {
+const TAGS = {
   background: ['body'],
   cite: ['blockquote', 'del', 'ins', 'q'],
   data: ['object'],
@@ -67,11 +67,16 @@ const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {
   )
 }
 
-module.exports = ({ html = '', url = '', whitelist = false } = {}) => {
-  const $ = cheerio.load(html)
+module.exports = ({
+  html = '',
+  url = '',
+  whitelist = false,
+  cheerioOpts = {}
+} = {}) => {
+  const $ = cheerio.load(html, cheerioOpts)
 
   return reduce(
-    LINKS_ATTRIBUTES,
+    TAGS,
     (acc, htmlTags, attribute) => {
       const links = getLinksByAttribute({
         selector: $(htmlTags.join(',')),
@@ -84,3 +89,5 @@ module.exports = ({ html = '', url = '', whitelist = false } = {}) => {
     []
   )
 }
+
+module.exports.TAGS = TAGS
