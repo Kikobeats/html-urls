@@ -105,7 +105,7 @@ describe('html links', () => {
       const html = generateHtml({ urls })
       const whitelist = ['https://indiehackers.com']
       const htmlUrls = getLinks({ html, whitelist }).map(
-        ({ normalizeUrl }) => normalizeUrl
+        ({ normalizedUrl }) => normalizedUrl
       )
 
       should(htmlUrls).be.eql([
@@ -128,7 +128,7 @@ describe('html links', () => {
       const html = generateHtml({ urls })
       const whitelist = ['https://indiehackers.com*']
       const htmlUrls = getLinks({ html, whitelist }).map(
-        ({ normalizeUrl }) => normalizeUrl
+        ({ normalizedUrl }) => normalizedUrl
       )
 
       should(htmlUrls).be.eql([
@@ -151,7 +151,7 @@ describe('html links', () => {
         'https://www.indiehackers.com**'
       ]
       const htmlUrls = getLinks({ html, whitelist }).map(
-        ({ normalizeUrl }) => normalizeUrl
+        ({ normalizedUrl }) => normalizedUrl
       )
 
       should(htmlUrls).be.eql([])

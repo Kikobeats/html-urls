@@ -45,7 +45,7 @@ const getLink = ({ url, el, attribute }) => {
     ? null
     : Object.assign({
       url: attr,
-      normalizeUrl: getUrl(url, attr)
+      normalizedUrl: getUrl(url, attr)
     })
 }
 
@@ -57,10 +57,10 @@ const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {
       if (isEmpty(link)) return acc
       const isAlreadyAdded = includes(
         acc,
-        item => item.normalizeUrl === link.normalizeUrl
+        item => item.normalizedUrl === link.normalizedUrl
       )
       if (isAlreadyAdded) return acc
-      const match = whitelist && matcher([link.normalizeUrl], whitelist)
+      const match = whitelist && matcher([link.normalizedUrl], whitelist)
       return isEmpty(match) ? concat(acc, link) : acc
     },
     []

@@ -1,75 +1,75 @@
 exports['get links from a semantic markup 1'] = [
   {
-    "normalizeUrl": "https://google.com",
+    "normalizedUrl": "https://google.com",
     "url": "https://google.com"
   },
   {
-    "normalizeUrl": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com",
     "url": "https://facebook.com"
   }
 ]
 
 exports['remove duplicate links 1'] = [
   {
-    "normalizeUrl": "https://google.com",
+    "normalizedUrl": "https://google.com",
     "url": "https://google.com"
   },
   {
-    "normalizeUrl": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com",
     "url": "https://facebook.com"
   }
 ]
 
 exports['final slash doesnt matter 1'] = [
   {
-    "normalizeUrl": "https://google.com",
+    "normalizedUrl": "https://google.com",
     "url": "https://google.com/"
   },
   {
-    "normalizeUrl": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com",
     "url": "https://facebook.com"
   }
 ]
 
 exports['query string parameters position are not relevant 1'] = [
   {
-    "normalizeUrl": "https://google.com/?hello=world&foo=bar",
+    "normalizedUrl": "https://google.com/?hello=world&foo=bar",
     "url": "https://google.com?hello=world&foo=bar"
   },
   {
-    "normalizeUrl": "https://google.com/?foo=bar&hello=world",
+    "normalizedUrl": "https://google.com/?foo=bar&hello=world",
     "url": "https://google.com?foo=bar&hello=world"
   },
   {
-    "normalizeUrl": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com",
     "url": "https://facebook.com"
   }
 ]
 
 exports['tag `link` support 1'] = [
   {
-    "normalizeUrl": "https://microlink.io/default.css",
+    "normalizedUrl": "https://microlink.io/default.css",
     "url": "default.css"
   }
 ]
 
 exports['resolve relative links 1'] = [
   {
-    "normalizeUrl": "https://microlink.io/login",
+    "normalizedUrl": "https://microlink.io/login",
     "url": "/login"
   }
 ]
 
 exports['string support 1'] = [
   {
-    "normalizeUrl": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com",
     "url": "https://facebook.com"
   }
 ]
 
 exports['regex support 1'] = [
   {
-    "normalizeUrl": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com",
     "url": "https://facebook.com"
   }
 ]
