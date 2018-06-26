@@ -1,3 +1,10 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2018-06-26)
+
+* Rename normalizeUrl → normalizedUrl ([ce0300c](https://github.com/Kikobeats/html-urls/commit/ce0300c))
+
+
+
 <a name="1.0.9"></a>
 ## 1.0.9 (2018-06-21)
 
