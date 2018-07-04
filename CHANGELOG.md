@@ -1,3 +1,10 @@
+<a name="2.0.1"></a>
+## 2.0.1 (2018-07-04)
+
+* Use Set instead of Array ([64e63d1](https://github.com/Kikobeats/html-urls/commit/64e63d1))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2018-06-26)
 
