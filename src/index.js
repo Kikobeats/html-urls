@@ -1,9 +1,11 @@
 'use strict'
 
-const { concat, isEmpty, reduce, get, findIndex } = require('lodash')
+const { uniqBy, concat, isEmpty, reduce, get, findIndex } = require('lodash')
 const { getUrl } = require('@metascraper/helpers')
 const cheerio = require('cheerio')
 const matcher = require('matcher')
+
+const UID = 'normalizedUrl'
 
 const TAGS = {
   background: ['body'],
@@ -56,13 +58,11 @@ const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {
     selector,
     (acc, el) => {
       const link = getLink({ url, el, attribute })
+      const uid = get(link, UID)
       if (isEmpty(link)) return acc
-      const isAlreadyAdded = includes(
-        acc,
-        item => item.normalizedUrl === link.normalizedUrl
-      )
+      const isAlreadyAdded = includes(acc, item => get(item, UID) === uid)
       if (isAlreadyAdded) return acc
-      const match = whitelist && matcher([link.normalizedUrl], whitelist)
+      const match = whitelist && matcher([uid], whitelist)
       return isEmpty(match) ? concat(acc, link) : acc
     },
     []
@@ -86,7 +86,7 @@ module.exports = ({
         url,
         whitelist
       })
-      return concat(acc, links)
+      return uniqBy(concat(acc, links), UID)
     },
     []
   )

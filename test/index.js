@@ -25,16 +25,24 @@ describe('html links', () => {
   })
 
   describe('normalization', () => {
-    it('remove duplicate links', () => {
-      const html = generateHtml({
-        urls: [
-          'https://google.com',
-          'https://google.com',
-          'https://facebook.com'
-        ]
+    describe('remove duplicate urls', () => {
+      it('from same tag', () => {
+        const html = generateHtml({
+          urls: [
+            'https://google.com',
+            'https://google.com',
+            'https://facebook.com'
+          ]
+        })
+        snapshot(getLinks({ html }))
       })
-
-      snapshot(getLinks({ html }))
+      it('from different tags', () => {
+        const html = generateHtml({
+          urls: ['https://google.com'],
+          links: ['https://google.com']
+        })
+        snapshot(getLinks({ html }))
+      })
     })
 
     it('invariant final slash', () => {

@@ -9,17 +9,6 @@ exports['get links from a semantic markup 1'] = [
   }
 ]
 
-exports['remove duplicate links 1'] = [
-  {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
-  },
-  {
-    "url": "https://facebook.com",
-    "normalizedUrl": "https://facebook.com"
-  }
-]
-
 exports['invariant final slash 1'] = [
   {
     "url": "https://google.com/",
@@ -47,6 +36,24 @@ exports['query string parameters position are not relevant 1'] = [
 ]
 
 exports['ignore invalid URLs 1'] = []
+
+exports['from same tag 1'] = [
+  {
+    "url": "https://google.com",
+    "normalizedUrl": "https://google.com"
+  },
+  {
+    "url": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com"
+  }
+]
+
+exports['from different tags 1'] = [
+  {
+    "url": "https://google.com",
+    "normalizedUrl": "https://google.com"
+  }
+]
 
 exports['${tag} (${attributeName}) 1'] = [
   {
