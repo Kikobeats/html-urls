@@ -41,12 +41,14 @@ const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
-  return isEmpty(attr)
-    ? null
-    : Object.assign({
-      url: attr,
-      normalizedUrl: getUrl(url, attr)
-    })
+  if (isEmpty(attr)) return null
+
+  try {
+    const normalizedUrl = getUrl(url, attr)
+    return { url: attr, normalizedUrl }
+  } catch (err) {
+    return null
+  }
 }
 
 const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {

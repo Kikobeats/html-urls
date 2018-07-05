@@ -632,3 +632,5 @@ exports['${tag} (${attributeName}) 27'] = [
   }
 ]
 
+exports['ignore invalid URLs 1'] = []
+

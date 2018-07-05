@@ -60,6 +60,14 @@ describe('html links', () => {
 
       snapshot(getLinks({ html }))
     })
+
+    it('ignore invalid URLs', () => {
+      const html = generateHtml({
+        urls: ['http://']
+      })
+
+      snapshot(getLinks({ html }))
+    })
   })
 
   describe('selectors supported', () => {
