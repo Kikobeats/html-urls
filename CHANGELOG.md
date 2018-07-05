@@ -1,3 +1,11 @@
+<a name="2.0.3"></a>
+## 2.0.3 (2018-07-05)
+
+* Remove duplicate urls from different tags ([862aaef](https://github.com/Kikobeats/html-urls/commit/862aaef))
+* Update tests snaphots ([c8f46a8](https://github.com/Kikobeats/html-urls/commit/c8f46a8))
+
+
+
 <a name="2.0.2"></a>
 ## 2.0.2 (2018-07-05)
 
