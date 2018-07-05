@@ -1,9 +1,13 @@
 'use strict'
 
 const snapshot = require('snap-shot')
+const { forEach } = require('lodash')
 const should = require('should')
 
 const getLinks = require('..')
+
+const { TAGS } = getLinks
+
 const { generateHtml } = require('./helpers')
 
 describe('html links', () => {
@@ -33,7 +37,7 @@ describe('html links', () => {
       snapshot(getLinks({ html }))
     })
 
-    it('final slash doesnt matter', () => {
+    it('invariant final slash', () => {
       const html = generateHtml({
         urls: [
           'https://google.com/',
@@ -58,37 +62,28 @@ describe('html links', () => {
     })
   })
 
-  describe('selector', () => {
-    describe('tag `a` support', () => {
-      it('resolve relative links', () => {
-        const url = 'https://microlink.io'
-        const html = generateHtml({
-          urls: ['/login']
+  describe('selectors supported', () => {
+    forEach(TAGS, (tags, attributeName) => {
+      forEach(tags, tag => {
+        it(`${tag} (${attributeName})`, () => {
+          const html = `
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>hello world</title>
+            <${tag} ${attributeName}="https://example.com">
+          </head>
+          <body>
+          </body>
+          </html>
+          `
+          const url = 'https://microlink.io'
+          snapshot(getLinks({ html, url }))
         })
-
-        snapshot(getLinks({ html, url }))
       })
-    })
-
-    it('tag `link` support', () => {
-      const html = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>hello world</title>
-        <link href="default.css" rel="stylesheet" title="Default Style">
-      </head>
-      <body>
-      </body>
-      </html>
-      `
-
-      const url = 'https://microlink.io'
-
-      snapshot(getLinks({ html, url }))
     })
   })
 

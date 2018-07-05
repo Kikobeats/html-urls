@@ -74,3 +74,561 @@ exports['regex support 1'] = [
   }
 ]
 
+exports['invariant final slash 1'] = [
+  {
+    "url": "https://google.com/",
+    "normalizedUrl": "https://google.com"
+  },
+  {
+    "url": "https://facebook.com",
+    "normalizedUrl": "https://facebook.com"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 1'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 2'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 3'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 4'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 5'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 6'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 7'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 8'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 9'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 10'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 11'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 12'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 13'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 14'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 15'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 16'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 17'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 18'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 19'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 20'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 21'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 22'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 23'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 24'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 25'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 26'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['605772ef20ba5a8a3af68ed1cb3e80f6fd2ac66d62b6bfe14d29ffc8fc821ba0 27'] = [
+  {
+    "url": "default.css",
+    "normalizedUrl": "https://microlink.io/default.css"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 1'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 2'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 3'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 4'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 5'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 6'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 7'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 8'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 9'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 10'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 11'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 12'] = []
+
+exports['${tag} with ${attributeName} attribute 13'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 14'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 15'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 16'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 17'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 18'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 19'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 20'] = []
+
+exports['${tag} with ${attributeName} attribute 21'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 22'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 23'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 24'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 25'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 26'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} with ${attributeName} attribute 27'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 1'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 2'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 3'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 4'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 5'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 6'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 7'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 8'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 9'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 10'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 11'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 12'] = []
+
+exports['${tag} (${attributeName}) 13'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 14'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 15'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 16'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 17'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 18'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 19'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 20'] = []
+
+exports['${tag} (${attributeName}) 21'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 22'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 23'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 24'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 25'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 26'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
+exports['${tag} (${attributeName}) 27'] = [
+  {
+    "url": "https://example.com",
+    "normalizedUrl": "https://example.com"
+  }
+]
+
