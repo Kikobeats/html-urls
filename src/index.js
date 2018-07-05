@@ -77,22 +77,19 @@ module.exports = ({
 } = {}) => {
   const $ = cheerio.load(html, cheerioOpts)
 
-  const set = reduce(
+  return reduce(
     TAGS,
-    (set, htmlTags, attribute) => {
+    (acc, htmlTags, attribute) => {
       const links = getLinksByAttribute({
         selector: $(htmlTags.join(',')),
         attribute,
         url,
         whitelist
       })
-
-      return new Set([...set, ...links])
+      return concat(acc, links)
     },
-    new Set()
+    []
   )
-
-  return Array.from(set)
 }
 
 module.exports.TAGS = TAGS
