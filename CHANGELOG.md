@@ -1,3 +1,11 @@
+<a name="2.0.2"></a>
+## 2.0.2 (2018-07-05)
+
+* Generate tests based on selectors supported ([d2a1993](https://github.com/Kikobeats/html-urls/commit/d2a1993))
+* Ignore invalid URLs ([08f8529](https://github.com/Kikobeats/html-urls/commit/08f8529))
+
+
+
 <a name="2.0.1"></a>
 ## 2.0.1 (2018-07-04)
 
