@@ -46,7 +46,7 @@ See [examples](/examples).
 
 ## API
 
-### links([options])
+### htmlUrls([options])
 
 #### options
 
@@ -72,6 +72,13 @@ Type: `array`<br>
 Default: `[]`
 
 A list of links to be excluded from the final output. It supports regex patterns.
+
+##### removeDuplicates
+
+Type: `boolean`<br>
+Default: true`
+
+Remove duplicated links detected over all the HTML tags.
 
 ## License
 

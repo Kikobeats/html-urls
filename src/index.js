@@ -33,7 +33,7 @@ const TAGS = {
 }
 
 const reduceSelector = (collection, fn, acc = []) => {
-  collection.each(function (index, element) {
+  collection.each(function () {
     acc = fn(acc, this)
   })
   return acc
@@ -53,29 +53,43 @@ const getLink = ({ url, el, attribute }) => {
   }
 }
 
-const getLinksByAttribute = ({ selector, attribute, url, whitelist }) => {
-  return reduceSelector(
-    selector,
-    (acc, el) => {
-      const link = getLink({ url, el, attribute })
-      const uid = get(link, UID)
-      if (isEmpty(link)) return acc
-      const isAlreadyAdded = includes(acc, item => get(item, UID) === uid)
-      if (isAlreadyAdded) return acc
-      const match = whitelist && matcher([uid], whitelist)
-      return isEmpty(match) ? concat(acc, link) : acc
-    },
-    []
-  )
+const createGetLinksByAttribute = ({ removeDuplicates }) => {
+  const has = removeDuplicates
+    ? (acc, uid) => includes(acc, item => get(item, UID) === uid)
+    : () => false
+
+  return ({ selector, attribute, url, whitelist }) =>
+    reduceSelector(
+      selector,
+      (acc, el) => {
+        const link = getLink({ url, el, attribute })
+        const uid = get(link, UID)
+        if (isEmpty(link)) return acc
+        const isAlreadyAdded = has(acc, uid)
+        if (isAlreadyAdded) return acc
+        const match = whitelist && matcher([uid], whitelist)
+        return isEmpty(match) ? concat(acc, link) : acc
+      },
+      []
+    )
 }
+
+const createAdd = ({ removeDuplicates }) =>
+  removeDuplicates
+    ? (acc, links) => uniqBy(concat(acc, links), UID)
+    : (acc, links) => concat(acc, links)
 
 module.exports = ({
   html = '',
   url = '',
   whitelist = false,
+  removeDuplicates = true,
   cheerioOpts = {}
 } = {}) => {
   const $ = cheerio.load(html, cheerioOpts)
+
+  const add = createAdd({ removeDuplicates })
+  const getLinksByAttribute = createGetLinksByAttribute({ removeDuplicates })
 
   return reduce(
     TAGS,
@@ -86,7 +100,8 @@ module.exports = ({
         url,
         whitelist
       })
-      return uniqBy(concat(acc, links), UID)
+
+      return add(acc, links)
     },
     []
   )

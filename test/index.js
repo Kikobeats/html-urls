@@ -24,31 +24,63 @@ describe('html links', () => {
     snapshot(getLinks({ html }))
   })
 
-  describe('normalization', () => {
-    describe('remove duplicate urls', () => {
-      it('from same tag', () => {
-        const html = generateHtml({
-          urls: [
-            'https://google.com',
-            'https://google.com',
-            'https://facebook.com'
-          ]
-        })
-        snapshot(getLinks({ html }))
+  describe('remove duplicate urls', () => {
+    it('from same tag', () => {
+      const html = generateHtml({
+        urls: [
+          'https://google.com',
+          'https://google.com',
+          'https://facebook.com'
+        ]
       })
-      it('from different tags', () => {
-        const html = generateHtml({
-          urls: ['https://google.com'],
-          links: ['https://google.com']
-        })
-        snapshot(getLinks({ html }))
-      })
+      snapshot(getLinks({ html }))
     })
+    it('from different tags', () => {
+      const html = generateHtml({
+        urls: ['https://google.com'],
+        links: ['https://google.com']
+      })
+      snapshot(getLinks({ html }))
+    })
+  })
 
+  describe('non remove duplicate urls', () => {
+    it('from same tag', () => {
+      const html = generateHtml({
+        urls: [
+          'https://google.com',
+          'https://google.com',
+          'https://facebook.com'
+        ]
+      })
+      snapshot(getLinks({ html, removeDuplicates: false }))
+    })
+    it('from different tags', () => {
+      const html = generateHtml({
+        urls: ['https://google.com'],
+        links: ['https://google.com']
+      })
+      snapshot(getLinks({ html, removeDuplicates: false }))
+    })
+  })
+
+  describe('normalization', () => {
     it('invariant final slash', () => {
       const html = generateHtml({
         urls: [
           'https://google.com/',
+          'https://google.com',
+          'https://facebook.com'
+        ]
+      })
+
+      snapshot(getLinks({ html }))
+    })
+
+    it('invariant wwww', () => {
+      const html = generateHtml({
+        urls: [
+          'https://www.google.com',
           'https://google.com',
           'https://facebook.com'
         ]
