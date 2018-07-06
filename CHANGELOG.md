@@ -1,3 +1,10 @@
+<a name="2.1.0"></a>
+# 2.1.0 (2018-07-06)
+
+* Add removeDuplicates option ([09282e8](https://github.com/Kikobeats/html-urls/commit/09282e8))
+
+
+
 <a name="2.0.3"></a>
 ## 2.0.3 (2018-07-05)
 
