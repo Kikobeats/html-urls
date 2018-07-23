@@ -73,6 +73,8 @@ Default: `[]`
 
 A list of links to be excluded from the final output. It supports regex patterns.
 
+See [matcher](https://github.com/sindresorhus/matcher#matcher-= for know more.
+
 ##### removeDuplicates
 
 Type: `boolean`<br>

@@ -67,7 +67,7 @@ const createGetLinksByAttribute = ({ removeDuplicates }) => {
         if (isEmpty(link)) return acc
         const isAlreadyAdded = has(acc, uid)
         if (isAlreadyAdded) return acc
-        const match = whitelist && matcher([uid], whitelist)
+        const match = !isEmpty(whitelist) && matcher([uid], concat(whitelist))
         return isEmpty(match) ? concat(acc, link) : acc
       },
       []

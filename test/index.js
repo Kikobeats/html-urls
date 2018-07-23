@@ -190,8 +190,8 @@ describe('html links', () => {
 
       const html = generateHtml({ urls })
       const whitelist = [
-        'https://indiehackers.com**',
-        'https://www.indiehackers.com**'
+        'https://indiehackers.com*',
+        'https://www.indiehackers.com*'
       ]
       const htmlUrls = getLinks({ html, whitelist }).map(
         ({ normalizedUrl }) => normalizedUrl
