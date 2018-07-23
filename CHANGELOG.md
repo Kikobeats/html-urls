@@ -1,3 +1,11 @@
+<a name="2.1.1"></a>
+## 2.1.1 (2018-07-23)
+
+* Update tests ([7115b20](https://github.com/Kikobeats/html-urls/commit/7115b20))
+* Use last version ([2bbb066](https://github.com/Kikobeats/html-urls/commit/2bbb066))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2018-07-06)
 
