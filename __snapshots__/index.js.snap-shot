@@ -275,3 +275,4 @@ exports['from different tags 2'] = [
   }
 ]
 
+exports['ignore mailto URLs 1'] = []

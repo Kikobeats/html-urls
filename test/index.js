@@ -108,6 +108,14 @@ describe('html links', () => {
 
       snapshot(getLinks({ html }))
     })
+
+    it('ignore mailto URLs', () => {
+      const html = generateHtml({
+        urls: ['mailto:test@kiko.com']
+      })
+
+      snapshot(getLinks({ html }))
+    })
   })
 
   describe('selectors supported', () => {
