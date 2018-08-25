@@ -1,3 +1,13 @@
+<a name="2.1.2"></a>
+## 2.1.2 (2018-08-25)
+
+* Ignore mailto urls ([fcc6607](https://github.com/Kikobeats/html-urls/commit/fcc6607))
+* Update package.json ([8410fb2](https://github.com/Kikobeats/html-urls/commit/8410fb2))
+* fix(package): update @metascraper/helpers to version 3.12.1 ([c3a83cf](https://github.com/Kikobeats/html-urls/commit/c3a83cf))
+* fix(package): update @metascraper/helpers to version 4.0.0 ([1afba08](https://github.com/Kikobeats/html-urls/commit/1afba08))
+
+
+
 <a name="2.1.1"></a>
 ## 2.1.1 (2018-07-23)
 
