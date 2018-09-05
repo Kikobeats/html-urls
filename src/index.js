@@ -1,7 +1,7 @@
 'use strict'
 
 const { uniqBy, concat, isEmpty, reduce, get, findIndex } = require('lodash')
-const { getUrl } = require('@metascraper/helpers')
+const { normalizeUrl } = require('@metascraper/helpers')
 const cheerio = require('cheerio')
 const matcher = require('matcher')
 
@@ -46,7 +46,7 @@ const getLink = ({ url, el, attribute }) => {
   if (isEmpty(attr) || attr.startsWith('mailto:')) return null
 
   try {
-    const normalizedUrl = getUrl(url, attr)
+    const normalizedUrl = normalizeUrl(url, attr)
     return { url: attr, normalizedUrl }
   } catch (err) {
     return null
