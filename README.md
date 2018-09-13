@@ -20,13 +20,13 @@ $ npm install html-urls --save
 
 ```js
 const got = require('got')
-const getLinks = require('html-urls')
+const htmlUrls = require('html-urls')
 
-;(async() => {
+;(async () => {
   const url = process.argv[2]
   if (!url) throw new TypeError('Need to provide an url as first argument.')
-  const {body: html} = await got(url)
-  const links = getLinks({html, url})
+  const { body: html } = await got(url)
+  const links = htmlUrls({ html, url })
 
   links.forEach(({ url, normalizedUrl }, index) => console.log(normalizedUrl))
 
