@@ -32,6 +32,8 @@ const TAGS = {
   ]
 }
 
+const REGEX_HTTP_PROTOCOL = /https?/i
+
 const reduceSelector = (collection, fn, acc = []) => {
   collection.each(function () {
     acc = fn(acc, this)
@@ -41,9 +43,17 @@ const reduceSelector = (collection, fn, acc = []) => {
 
 const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
+const isHttpUrl = url => {
+  try {
+    return REGEX_HTTP_PROTOCOL.test(new URL(url).protocol)
+  } catch (err) {
+    return false
+  }
+}
+
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
-  if (isEmpty(attr) || attr.startsWith('mailto:') || attr.startsWith('callto:')) { return null }
+  if (isEmpty(attr) || !isHttpUrl(attr)) return null
 
   try {
     const normalizedUrl = normalizeUrl(url, attr)
