@@ -1,3 +1,12 @@
+<a name="2.2.0"></a>
+# 2.2.0 (2018-09-16)
+
+* Fix linter ([80263a2](https://github.com/Kikobeats/html-urls/commit/80263a2))
+* Ignore callto URLs ([d38f561](https://github.com/Kikobeats/html-urls/commit/d38f561))
+* Update package.json ([08957ee](https://github.com/Kikobeats/html-urls/commit/08957ee))
+
+
+
 <a name="2.1.3"></a>
 ## 2.1.3 (2018-09-05)
 
