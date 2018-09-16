@@ -43,7 +43,7 @@ const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
-  if (isEmpty(attr) || attr.startsWith('mailto:')) return null
+  if (isEmpty(attr) || attr.startsWith('mailto:') || attr.startsWith('callto:')) { return null }
 
   try {
     const normalizedUrl = normalizeUrl(url, attr)

@@ -116,6 +116,14 @@ describe('html links', () => {
 
       snapshot(getLinks({ html }))
     })
+
+    it('ignore phone URLs', () => {
+      const html = generateHtml({
+        urls: ['mailto:666']
+      })
+
+      snapshot(getLinks({ html }))
+    })
   })
 
   describe('selectors supported', () => {
