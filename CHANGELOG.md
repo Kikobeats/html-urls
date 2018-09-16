@@ -1,3 +1,10 @@
+<a name="2.2.1"></a>
+## 2.2.1 (2018-09-16)
+
+* Refactor ([f5e23de](https://github.com/Kikobeats/html-urls/commit/f5e23de))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2018-09-16)
 
