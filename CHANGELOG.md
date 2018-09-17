@@ -1,3 +1,10 @@
+<a name="2.3.0"></a>
+# 2.3.0 (2018-09-17)
+
+* Add is-url-http dependency ([0ca6a28](https://github.com/Kikobeats/html-urls/commit/0ca6a28))
+
+
+
 <a name="2.2.1"></a>
 ## 2.2.1 (2018-09-16)
 
