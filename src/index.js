@@ -2,6 +2,7 @@
 
 const { uniqBy, concat, isEmpty, reduce, get, findIndex } = require('lodash')
 const { normalizeUrl } = require('@metascraper/helpers')
+const isHttpUrl = require('is-url-http')
 const cheerio = require('cheerio')
 const matcher = require('matcher')
 
@@ -32,8 +33,6 @@ const TAGS = {
   ]
 }
 
-const REGEX_HTTP_PROTOCOL = /https?/i
-
 const reduceSelector = (collection, fn, acc = []) => {
   collection.each(function () {
     acc = fn(acc, this)
@@ -42,14 +41,6 @@ const reduceSelector = (collection, fn, acc = []) => {
 }
 
 const includes = (collection, fn) => findIndex(collection, fn) !== -1
-
-const isHttpUrl = url => {
-  try {
-    return REGEX_HTTP_PROTOCOL.test(new URL(url).protocol)
-  } catch (err) {
-    return false
-  }
-}
 
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
