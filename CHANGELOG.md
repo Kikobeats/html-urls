@@ -1,3 +1,11 @@
+<a name="2.3.1"></a>
+## 2.3.1 (2018-11-16)
+
+* fix(package): update @metascraper/helpers to version 4.5.5 ([9af4a4f](https://github.com/Kikobeats/html-urls/commit/9af4a4f))
+* fix(package): update @metascraper/helpers to version 4.7.0 ([967577e](https://github.com/Kikobeats/html-urls/commit/967577e))
+
+
+
 <a name="2.3.0"></a>
 # 2.3.0 (2018-09-17)
 
