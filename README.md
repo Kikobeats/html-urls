@@ -78,7 +78,7 @@ See [matcher](https://github.com/sindresorhus/matcher#matcher) for know more.
 ##### removeDuplicates
 
 Type: `boolean`<br>
-Default: true`
+Default: `true`
 
 Remove duplicated links detected over all the HTML tags.
 
