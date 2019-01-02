@@ -82,6 +82,11 @@ Default: true`
 
 Remove duplicated links detected over all the HTML tags.
 
+## Related
+
+- [xml-urls](https://github.com/Kikobeats/xml-urls) – Get all urls from a Feed/Atom/RSS/Sitemap xml markup.
+- [css-urls](https://github.com/Kikobeats/css-urls) – Get all URLs referenced from stylesheet files.
+
 ## License
 
 **html-urls** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/html-urls/blob/master/LICENSE.md) License.<br>
