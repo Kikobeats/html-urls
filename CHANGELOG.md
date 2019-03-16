@@ -1,3 +1,16 @@
+<a name="2.3.2"></a>
+## 2.3.2 (2019-03-16)
+
+* fix(package): update @metascraper/helpers to version 4.10.2 ([d3ecff4](https://github.com/Kikobeats/html-urls/commit/d3ecff4))
+* fix(package): update @metascraper/helpers to version 4.8.3 ([2435919](https://github.com/Kikobeats/html-urls/commit/2435919))
+* fix(package): update @metascraper/helpers to version 4.9.0 ([c6973ff](https://github.com/Kikobeats/html-urls/commit/c6973ff))
+* fix(package): update is-url-http to version 1.1.1 ([6685359](https://github.com/Kikobeats/html-urls/commit/6685359))
+* Update README.md ([e2efa84](https://github.com/Kikobeats/html-urls/commit/e2efa84))
+* Update README.md ([f0cc8fa](https://github.com/Kikobeats/html-urls/commit/f0cc8fa))
+* Update README.md ([b4b2a74](https://github.com/Kikobeats/html-urls/commit/b4b2a74))
+
+
+
 <a name="2.3.1"></a>
 ## 2.3.1 (2018-11-16)
 
