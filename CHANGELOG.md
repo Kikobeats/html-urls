@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.4"></a>
+## [2.3.4](https://github.com/Kikobeats/html-urls/compare/v2.3.3...v2.3.4) (2019-04-03)
+
+
+### Bug Fixes
+
+* **package:** update [@metascraper](https://github.com/metascraper)/helpers to version 5.1.0 ([42ca806](https://github.com/Kikobeats/html-urls/commit/42ca806))
+
+
+
 <a name="2.3.3"></a>
 ## 2.3.3 (2019-03-17)
 
