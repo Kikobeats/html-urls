@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.8](https://github.com/Kikobeats/html-urls/compare/v2.3.7...v2.3.8) (2019-05-20)
+
+
+### Bug Fixes
+
+* **package:** update is-url-http to version 1.2.0 ([386be98](https://github.com/Kikobeats/html-urls/commit/386be98))
+
+
+
 ### [2.3.7](https://github.com/Kikobeats/html-urls/compare/v2.3.6...v2.3.7) (2019-05-15)
 
 
