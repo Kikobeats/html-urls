@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.9](https://github.com/Kikobeats/html-urls/compare/v2.3.8...v2.3.9) (2019-05-20)
+
+
+### Build System
+
+* change git-authors-cli position ([ded4a00](https://github.com/Kikobeats/html-urls/commit/ded4a00))
+
+
+
 ### [2.3.8](https://github.com/Kikobeats/html-urls/compare/v2.3.7...v2.3.8) (2019-05-20)
 
 
