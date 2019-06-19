@@ -1,7 +1,7 @@
 {
   "name": "html-urls",
   "description": "Get all links from a HTML markup",
-  "homepage": "https://documentup.com/Kikobeats/html-urls",
+  "homepage": "https://nicedoc.io/Kikobeats/html-urls",
   "version": "2.3.10",
   "main": "src/index.js",
   "author": {
