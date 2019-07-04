@@ -6,7 +6,6 @@
 [![Dependency status](https://img.shields.io/david/Kikobeats/html-urls.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-urls)
 [![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/html-urls.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-urls#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/html-urls.svg?style=flat-square)](https://www.npmjs.org/package/html-urls)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
 > Get all links from a HTML markup. It's based on [W3C link checker](https://github.com/w3c/node-linkchecker).
 
