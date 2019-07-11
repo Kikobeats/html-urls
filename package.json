@@ -2,7 +2,7 @@
   "name": "html-urls",
   "description": "Get all links from a HTML markup",
   "homepage": "https://nicedoc.io/Kikobeats/html-urls",
-  "version": "2.3.13",
+  "version": "2.3.14",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
