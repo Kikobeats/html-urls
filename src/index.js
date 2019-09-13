@@ -19,18 +19,7 @@ const TAGS = {
   poster: ['video'],
   pluginspage: ['embed'],
   pluginurl: ['embed'],
-  src: [
-    'audio',
-    'embed',
-    'frame',
-    'iframe',
-    'img',
-    'input',
-    'script',
-    'source',
-    'track',
-    'video'
-  ]
+  src: ['audio', 'embed', 'frame', 'iframe', 'img', 'input', 'script', 'source', 'track', 'video']
 }
 
 const reduceSelector = (collection, fn, acc = []) => {
@@ -47,7 +36,7 @@ const getLink = ({ url, el, attribute }) => {
   if (isEmpty(attr) || !isHttpUrl(attr)) return null
 
   try {
-    const normalizedUrl = normalizeUrl(url, attr)
+    const normalizedUrl = normalizeUrl(attr, url)
     return { url: attr, normalizedUrl }
   } catch (err) {
     return null
