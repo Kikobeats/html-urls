@@ -27,11 +27,7 @@ describe('html links', () => {
   describe('remove duplicate urls', () => {
     it('from same tag', () => {
       const html = generateHtml({
-        urls: [
-          'https://google.com',
-          'https://google.com',
-          'https://facebook.com'
-        ]
+        urls: ['https://google.com', 'https://google.com', 'https://facebook.com']
       })
       snapshot(getLinks({ html }))
     })
@@ -47,11 +43,7 @@ describe('html links', () => {
   describe('non remove duplicate urls', () => {
     it('from same tag', () => {
       const html = generateHtml({
-        urls: [
-          'https://google.com',
-          'https://google.com',
-          'https://facebook.com'
-        ]
+        urls: ['https://google.com', 'https://google.com', 'https://facebook.com']
       })
       snapshot(getLinks({ html, removeDuplicates: false }))
     })
@@ -67,11 +59,7 @@ describe('html links', () => {
   describe('normalization', () => {
     it('invariant final slash', () => {
       const html = generateHtml({
-        urls: [
-          'https://google.com/',
-          'https://google.com',
-          'https://facebook.com'
-        ]
+        urls: ['https://google.com/', 'https://google.com', 'https://facebook.com']
       })
 
       snapshot(getLinks({ html }))
@@ -79,11 +67,7 @@ describe('html links', () => {
 
     it('invariant wwww', () => {
       const html = generateHtml({
-        urls: [
-          'https://www.google.com',
-          'https://google.com',
-          'https://facebook.com'
-        ]
+        urls: ['https://www.google.com', 'https://google.com', 'https://facebook.com']
       })
 
       snapshot(getLinks({ html }))
@@ -144,7 +128,7 @@ describe('html links', () => {
           </body>
           </html>
           `
-          const url = 'https://microlink.io'
+          const url = 'https://example.com'
           snapshot(getLinks({ html, url }))
         })
       })
@@ -163,9 +147,7 @@ describe('html links', () => {
 
       const html = generateHtml({ urls })
       const whitelist = ['https://indiehackers.com']
-      const htmlUrls = getLinks({ html, whitelist }).map(
-        ({ normalizedUrl }) => normalizedUrl
-      )
+      const htmlUrls = getLinks({ html, whitelist }).map(({ normalizedUrl }) => normalizedUrl)
 
       should(htmlUrls).be.eql([
         'https://indiehackers.com/images/favicons/favicon',
@@ -186,9 +168,7 @@ describe('html links', () => {
 
       const html = generateHtml({ urls })
       const whitelist = ['https://indiehackers.com*']
-      const htmlUrls = getLinks({ html, whitelist }).map(
-        ({ normalizedUrl }) => normalizedUrl
-      )
+      const htmlUrls = getLinks({ html, whitelist }).map(({ normalizedUrl }) => normalizedUrl)
 
       should(htmlUrls).be.eql([
         'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173'
@@ -205,13 +185,8 @@ describe('html links', () => {
       ]
 
       const html = generateHtml({ urls })
-      const whitelist = [
-        'https://indiehackers.com*',
-        'https://www.indiehackers.com*'
-      ]
-      const htmlUrls = getLinks({ html, whitelist }).map(
-        ({ normalizedUrl }) => normalizedUrl
-      )
+      const whitelist = ['https://indiehackers.com*', 'https://www.indiehackers.com*']
+      const htmlUrls = getLinks({ html, whitelist }).map(({ normalizedUrl }) => normalizedUrl)
 
       should(htmlUrls).be.eql([])
     })
