@@ -147,7 +147,7 @@ describe('html links', () => {
 
       const html = generateHtml({ urls })
       const whitelist = ['https://indiehackers.com']
-      const htmlUrls = getLinks({ html, whitelist }).map(({ normalizedUrl }) => normalizedUrl)
+      const htmlUrls = getLinks({ html, whitelist }).map(({ uri }) => uri)
 
       should(htmlUrls).be.eql([
         'https://indiehackers.com/images/favicons/favicon',
@@ -168,7 +168,7 @@ describe('html links', () => {
 
       const html = generateHtml({ urls })
       const whitelist = ['https://indiehackers.com*']
-      const htmlUrls = getLinks({ html, whitelist }).map(({ normalizedUrl }) => normalizedUrl)
+      const htmlUrls = getLinks({ html, whitelist }).map(({ uri }) => uri)
 
       should(htmlUrls).be.eql([
         'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173'
@@ -186,7 +186,7 @@ describe('html links', () => {
 
       const html = generateHtml({ urls })
       const whitelist = ['https://indiehackers.com*', 'https://www.indiehackers.com*']
-      const htmlUrls = getLinks({ html, whitelist }).map(({ normalizedUrl }) => normalizedUrl)
+      const htmlUrls = getLinks({ html, whitelist }).map(({ uri }) => uri)
 
       should(htmlUrls).be.eql([])
     })

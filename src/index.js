@@ -5,8 +5,9 @@ const { normalizeUrl } = require('@metascraper/helpers')
 const isHttpUrl = require('is-url-http')
 const cheerio = require('cheerio')
 const matcher = require('matcher')
+const isUri = require('is-uri')
 
-const UID = 'normalizedUrl'
+const UID = 'uri'
 
 const TAGS = {
   background: ['body'],
@@ -31,15 +32,21 @@ const reduceSelector = (collection, fn, acc = []) => {
 
 const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
+const normalizedUrl = (...args) => {
+  try {
+    return normalizeUrl(...args)
+  } catch (_) {
+    return undefined
+  }
+}
+
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
-  if (isEmpty(attr) || !isHttpUrl(attr)) return null
-
-  try {
-    const normalizedUrl = normalizeUrl(attr, url)
-    return { url: attr, normalizedUrl }
-  } catch (err) {
-    return null
+  if (isEmpty(attr)) return undefined
+  return {
+    value: attr,
+    url: isHttpUrl(attr) ? normalizedUrl(url, attr) : undefined,
+    uri: isUri(attr) ? attr : undefined
   }
 }
 
@@ -90,7 +97,6 @@ module.exports = ({
         url,
         whitelist
       })
-
       return add(acc, links)
     },
     []

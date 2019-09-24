@@ -7,7 +7,7 @@
 [![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/html-urls.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-urls#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/html-urls.svg?style=flat-square)](https://www.npmjs.org/package/html-urls)
 
-> Get all links from a HTML markup. It's based on [W3C link checker](https://github.com/w3c/node-linkchecker).
+> Get all URLs from a HTML markup. It's based on [W3C link checker](https://github.com/w3c/node-linkchecker).
 
 ## Install
 
@@ -27,7 +27,7 @@ const htmlUrls = require('html-urls')
   const { body: html } = await got(url)
   const links = htmlUrls({ html, url })
 
-  links.forEach(({ url, normalizedUrl }, index) => console.log(normalizedUrl))
+  links.forEach(({ url }) => console.log(url))
 
   // => [
   //   'https://microlink.io/component---src-layouts-index-js-86b5f94dfa48cb04ae41.js',
@@ -41,7 +41,26 @@ const htmlUrls = require('html-urls')
 })()
 ```
 
-See [examples](/examples).
+It returns the following structure per every value detect on the HTML markup:
+
+#####  value
+Type: `<string>`
+
+The original value.
+
+#####  url
+Type: `<string|undefined>`
+
+The normalized URL, if the value can be considered an URL.
+
+#####  uri
+Type: `<string|undefined>`
+
+The normalized value as URI.
+
+<br/>
+
+See [examples](/examples) for more!
 
 ## API
 

@@ -1,134 +1,208 @@
 exports['get links from a semantic markup 1'] = [
   {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
+    "value": "https://google.com",
+    "uri": "https://google.com"
   },
   {
-    "url": "https://facebook.com",
-    "normalizedUrl": "https://facebook.com"
+    "value": "https://facebook.com",
+    "uri": "https://facebook.com"
   }
 ]
-
-exports['invariant final slash 1'] = [
-  {
-    "url": "https://google.com/",
-    "normalizedUrl": "https://google.com"
-  },
-  {
-    "url": "https://facebook.com",
-    "normalizedUrl": "https://facebook.com"
-  }
-]
-
-exports['query string parameters position are not relevant 1'] = [
-  {
-    "url": "https://google.com?hello=world&foo=bar",
-    "normalizedUrl": "https://google.com/?hello=world&foo=bar"
-  },
-  {
-    "url": "https://google.com?foo=bar&hello=world",
-    "normalizedUrl": "https://google.com/?foo=bar&hello=world"
-  },
-  {
-    "url": "https://facebook.com",
-    "normalizedUrl": "https://facebook.com"
-  }
-]
-
-exports['ignore invalid URLs 1'] = []
 
 exports['from same tag 1'] = [
   {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
+    "value": "https://google.com",
+    "uri": "https://google.com"
   },
   {
-    "url": "https://facebook.com",
-    "normalizedUrl": "https://facebook.com"
+    "value": "https://facebook.com",
+    "uri": "https://facebook.com"
   }
 ]
 
 exports['from different tags 1'] = [
   {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
+    "value": "https://google.com",
+    "uri": "https://google.com"
+  }
+]
+
+exports['from same tag 2'] = [
+  {
+    "value": "https://google.com",
+    "uri": "https://google.com"
+  },
+  {
+    "value": "https://google.com",
+    "uri": "https://google.com"
+  },
+  {
+    "value": "https://facebook.com",
+    "uri": "https://facebook.com"
+  }
+]
+
+exports['from different tags 2'] = [
+  {
+    "value": "https://google.com",
+    "uri": "https://google.com"
+  },
+  {
+    "value": "https://google.com",
+    "uri": "https://google.com"
+  }
+]
+
+exports['invariant final slash 1'] = [
+  {
+    "value": "https://google.com/",
+    "uri": "https://google.com/"
+  },
+  {
+    "value": "https://google.com",
+    "uri": "https://google.com"
+  },
+  {
+    "value": "https://facebook.com",
+    "uri": "https://facebook.com"
+  }
+]
+
+exports['invariant wwww 1'] = [
+  {
+    "value": "https://www.google.com",
+    "uri": "https://www.google.com"
+  },
+  {
+    "value": "https://google.com",
+    "uri": "https://google.com"
+  },
+  {
+    "value": "https://facebook.com",
+    "uri": "https://facebook.com"
+  }
+]
+
+exports['query string parameters position are not relevant 1'] = [
+  {
+    "value": "https://google.com?hello=world&foo=bar",
+    "uri": "https://google.com?hello=world&foo=bar"
+  },
+  {
+    "value": "https://google.com?foo=bar&hello=world",
+    "uri": "https://google.com?foo=bar&hello=world"
+  },
+  {
+    "value": "https://facebook.com",
+    "uri": "https://facebook.com"
+  }
+]
+
+exports['ignore invalid URLs 1'] = [
+  {
+    "value": "http://",
+    "uri": "http://"
+  }
+]
+
+exports['ignore mailto URLs 1'] = [
+  {
+    "value": "mailto:test@kiko.com"
+  }
+]
+
+exports['ignore phone URLs 1'] = [
+  {
+    "value": "mailto:666",
+    "uri": "mailto:666"
   }
 ]
 
 exports['${tag} (${attributeName}) 1'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 2'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 3'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 4'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 5'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 6'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 7'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 8'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 9'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 10'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 11'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
@@ -136,50 +210,57 @@ exports['${tag} (${attributeName}) 12'] = []
 
 exports['${tag} (${attributeName}) 13'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 14'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 15'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 16'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 17'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 18'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 19'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
@@ -187,95 +268,57 @@ exports['${tag} (${attributeName}) 20'] = []
 
 exports['${tag} (${attributeName}) 21'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 22'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 23'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 24'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 25'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 26'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
 
 exports['${tag} (${attributeName}) 27'] = [
   {
+    "value": "https://example.com",
     "url": "https://example.com",
-    "normalizedUrl": "https://example.com"
+    "uri": "https://example.com"
   }
 ]
-
-exports['invariant wwww 1'] = [
-  {
-    "url": "https://www.google.com",
-    "normalizedUrl": "https://www.google.com"
-  },
-  {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
-  },
-  {
-    "url": "https://facebook.com",
-    "normalizedUrl": "https://facebook.com"
-  }
-]
-
-exports['from same tag 2'] = [
-  {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
-  },
-  {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
-  },
-  {
-    "url": "https://facebook.com",
-    "normalizedUrl": "https://facebook.com"
-  }
-]
-
-exports['from different tags 2'] = [
-  {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
-  },
-  {
-    "url": "https://google.com",
-    "normalizedUrl": "https://google.com"
-  }
-]
-
-exports['ignore mailto URLs 1'] = []
-
-exports['ignore phone URLs 1'] = []
 
