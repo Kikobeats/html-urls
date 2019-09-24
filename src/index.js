@@ -32,12 +32,20 @@ const reduceSelector = (collection, fn, acc = []) => {
 
 const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
+const normalizedUrl = (...args) => {
+  try {
+    return normalizeUrl(...args)
+  } catch (_) {
+    return undefined
+  }
+}
+
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
   if (isEmpty(attr)) return undefined
   return {
     value: attr,
-    url: isHttpUrl(attr) ? normalizeUrl(url, attr) : undefined,
+    url: isHttpUrl(attr) ? normalizedUrl(url, attr) : undefined,
     uri: isUri(attr) ? attr : undefined
   }
 }
