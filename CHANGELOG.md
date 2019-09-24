@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/Kikobeats/html-urls/compare/v2.3.16...v2.4.0) (2019-09-24)
+
+
+### Features
+
+* add uri support ([a629c99](https://github.com/Kikobeats/html-urls/commit/a629c99))
+
 ### [2.3.16](https://github.com/Kikobeats/html-urls/compare/v2.3.15...v2.3.16) (2019-09-24)
 
 ### [2.3.15](https://github.com/Kikobeats/html-urls/compare/v2.3.14...v2.3.15) (2019-09-13)
