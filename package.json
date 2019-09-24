@@ -27,16 +27,15 @@
     "urls"
   ],
   "dependencies": {
-    "@metascraper/helpers": "~5.7.0",
+    "@metascraper/helpers": "~5.7.5",
     "cheerio": "~1.0.0-rc.2",
     "is-url-http": "~1.2.0",
-    "lodash": "~4.17.10",
+    "lodash": "~4.17.15",
     "matcher": "~2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "chalk": "~2.4.1",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
     "coveralls": "latest",
