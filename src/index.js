@@ -43,7 +43,7 @@ const normalizedUrl = (...args) => {
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
   if (isEmpty(attr)) return undefined
-  const absoluteUrl = normalizedUrl(url, attr)
+  const absoluteUrl = url ? normalizedUrl(url, attr) : normalizedUrl(attr)
   return {
     value: attr,
     url: isHttpUrl(absoluteUrl) ? absoluteUrl : undefined,

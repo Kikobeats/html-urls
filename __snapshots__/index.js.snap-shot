@@ -1,10 +1,12 @@
 exports['get links from a semantic markup 1'] = [
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   },
   {
     "value": "https://facebook.com",
+    "url": "https://facebook.com",
     "uri": "https://facebook.com"
   }
 ]
@@ -12,10 +14,12 @@ exports['get links from a semantic markup 1'] = [
 exports['from same tag 1'] = [
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   },
   {
     "value": "https://facebook.com",
+    "url": "https://facebook.com",
     "uri": "https://facebook.com"
   }
 ]
@@ -23,6 +27,7 @@ exports['from same tag 1'] = [
 exports['from different tags 1'] = [
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   }
 ]
@@ -30,14 +35,17 @@ exports['from different tags 1'] = [
 exports['from same tag 2'] = [
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   },
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   },
   {
     "value": "https://facebook.com",
+    "url": "https://facebook.com",
     "uri": "https://facebook.com"
   }
 ]
@@ -45,10 +53,12 @@ exports['from same tag 2'] = [
 exports['from different tags 2'] = [
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   },
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   }
 ]
@@ -56,14 +66,12 @@ exports['from different tags 2'] = [
 exports['invariant final slash 1'] = [
   {
     "value": "https://google.com/",
-    "uri": "https://google.com/"
-  },
-  {
-    "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   },
   {
     "value": "https://facebook.com",
+    "url": "https://facebook.com",
     "uri": "https://facebook.com"
   }
 ]
@@ -71,14 +79,17 @@ exports['invariant final slash 1'] = [
 exports['invariant wwww 1'] = [
   {
     "value": "https://www.google.com",
+    "url": "https://www.google.com",
     "uri": "https://www.google.com"
   },
   {
     "value": "https://google.com",
+    "url": "https://google.com",
     "uri": "https://google.com"
   },
   {
     "value": "https://facebook.com",
+    "url": "https://facebook.com",
     "uri": "https://facebook.com"
   }
 ]
@@ -86,35 +97,39 @@ exports['invariant wwww 1'] = [
 exports['query string parameters position are not relevant 1'] = [
   {
     "value": "https://google.com?hello=world&foo=bar",
-    "uri": "https://google.com?hello=world&foo=bar"
+    "url": "https://google.com/?hello=world&foo=bar",
+    "uri": "https://google.com/?hello=world&foo=bar"
   },
   {
     "value": "https://google.com?foo=bar&hello=world",
-    "uri": "https://google.com?foo=bar&hello=world"
+    "url": "https://google.com/?foo=bar&hello=world",
+    "uri": "https://google.com/?foo=bar&hello=world"
   },
   {
     "value": "https://facebook.com",
+    "url": "https://facebook.com",
     "uri": "https://facebook.com"
   }
 ]
 
 exports['ignore invalid URLs 1'] = [
   {
-    "value": "http://",
-    "uri": "http://"
+    "value": "http://"
   }
 ]
 
 exports['ignore mailto URLs 1'] = [
   {
-    "value": "mailto:test@kiko.com"
+    "value": "mailto:test@kiko.com",
+    "url": "http://kiko.com",
+    "uri": "http://kiko.com"
   }
 ]
 
 exports['ignore phone URLs 1'] = [
   {
     "value": "mailto:666",
-    "uri": "mailto:666"
+    "uri": "http://mailto:666"
   }
 ]
 
