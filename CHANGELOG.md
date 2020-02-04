@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.6](https://github.com/Kikobeats/html-urls/compare/v2.4.5...v2.4.6) (2020-02-04)
+
 ### [2.4.5](https://github.com/Kikobeats/html-urls/compare/v2.4.4...v2.4.5) (2020-01-16)
 
 ### [2.4.4](https://github.com/Kikobeats/html-urls/compare/v2.4.3...v2.4.4) (2020-01-08)
