@@ -27,10 +27,10 @@
     "urls"
   ],
   "dependencies": {
-    "@metascraper/helpers": "~5.15.0",
+    "@metascraper/helpers": "~5.15.4",
     "cheerio": "~1.0.0-rc.3",
     "is-uri": "~1.2.0",
-    "is-url-http": "~2.2.1",
+    "is-url-http": "~2.2.2",
     "lodash": "~4.17.20",
     "matcher": "~3.0.0"
   },
