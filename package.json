@@ -32,7 +32,7 @@
     "is-uri": "~1.2.0",
     "is-url-http": "~2.2.2",
     "lodash": "~4.17.20",
-    "matcher": "~3.0.0"
+    "matcher": "~4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
