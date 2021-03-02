@@ -27,12 +27,12 @@
     "urls"
   ],
   "dependencies": {
-    "@metascraper/helpers": "~5.18.1",
-    "cheerio": "~1.0.0-rc.3",
+    "@metascraper/helpers": "~5.18.12",
+    "cheerio": "~1.0.0-rc.5",
     "is-uri": "~1.2.0",
-    "is-url-http": "~2.2.2",
-    "lodash": "~4.17.20",
-    "matcher": "~3.0.0"
+    "is-url-http": "~2.2.3",
+    "lodash": "~4.17.21",
+    "matcher": "~4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
