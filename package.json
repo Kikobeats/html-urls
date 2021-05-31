@@ -44,13 +44,13 @@
     "git-authors-cli": "latest",
     "git-dirty": "latest",
     "got": "latest",
-    "husky": "latest",
     "lint-staged": "latest",
     "mocha": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
     "prettier-standard": "latest",
     "should": "latest",
+    "simple-git-hooks": "latest",
     "snap-shot": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
@@ -84,12 +84,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "package.json": [
       "finepack"
@@ -97,6 +91,10 @@
     "*.js": [
       "prettier-standard"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx lint-staged"
   },
   "standard": {
     "env": [
