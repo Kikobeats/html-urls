@@ -39,11 +39,8 @@
     "@commitlint/config-conventional": "latest",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
-    "coveralls": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "git-dirty": "latest",
-    "got": "latest",
     "lint-staged": "latest",
     "mocha": "latest",
     "npm-check-updates": "latest",
@@ -88,8 +85,11 @@
     "package.json": [
       "finepack"
     ],
-    "*.js": [
+    "*.js,!*.min.js,": [
       "prettier-standard"
+    ],
+    "*.md": [
+      "standard-markdown"
     ]
   },
   "simple-git-hooks": {
