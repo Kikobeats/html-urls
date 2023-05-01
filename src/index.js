@@ -9,18 +9,18 @@ const isUri = require('is-uri')
 
 const UID = 'uri'
 
+/**
+ * Originally picked from https://github.com/rehypejs/rehype-minify/blob/main/packages/html-url-attributes/index.js
+ */
 const TAGS = {
-  background: ['body'],
+  action: ['form'],
   cite: ['blockquote', 'del', 'ins', 'q'],
   data: ['object'],
-  href: ['a', 'area', 'embed', 'link'],
-  icon: ['command'],
-  longdesc: ['frame', 'iframe'],
-  manifest: ['html'],
+  formaction: ['button', 'input'],
+  href: ['a', 'area', 'base', 'link'],
+  ping: ['a', 'area'],
   poster: ['video'],
-  pluginspage: ['embed'],
-  pluginurl: ['embed'],
-  src: ['audio', 'embed', 'frame', 'iframe', 'img', 'input', 'script', 'source', 'track', 'video']
+  src: ['audio', 'embed', 'iframe', 'img', 'input', 'script', 'source', 'track', 'video']
 }
 
 const reduceSelector = (collection, fn, acc = []) => {
