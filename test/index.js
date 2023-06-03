@@ -13,7 +13,7 @@ test('empty html generate empty output', t => {
 
 test('get links from a semantic markup', t => {
   const html = generateHtml({
-    urls: ['https://google.com', 'https://facebook.com']
+    urls: ['https://google.com', 'https://facebook.com', 'mailto://kiko@example.com']
   })
 
   t.snapshot(getLinks({ html }))
@@ -80,22 +80,6 @@ test('normalize query string parameters', t => {
 test('ignore invalid URLs', t => {
   const html = generateHtml({
     urls: ['http://']
-  })
-
-  t.snapshot(getLinks({ html }))
-})
-
-test('ignore mailto URLs', t => {
-  const html = generateHtml({
-    urls: ['mailto:test@kiko.com']
-  })
-
-  t.snapshot(getLinks({ html }))
-})
-
-test('ignore phone URLs', t => {
-  const html = generateHtml({
-    urls: ['mailto:666']
   })
 
   t.snapshot(getLinks({ html }))
