@@ -2,7 +2,7 @@
   "name": "html-urls",
   "description": "Get all links from a HTML markup",
   "homepage": "https://github.com/Kikobeats/html-urls",
-  "version": "2.4.48",
+  "version": "2.4.49",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
