@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.4.57 (2024-02-26)
+
+
+### Bug Fixes
+
+* test glob ([0cab6bc](https://github.com/Kikobeats/html-urls/commit/0cab6bc9f9bb12eff4f77b45ff4075ae84a5da43))
+
 ### 2.4.56 (2024-02-12)
 
 ### 2.4.55 (2024-01-01)
