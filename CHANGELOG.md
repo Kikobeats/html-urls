@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.4.61 (2025-01-13)
+
+
+### Bug Fixes
+
+* sort ([200c8c3](https://github.com/Kikobeats/html-urls/commit/200c8c350c899dc567bf30a7ca6d6861d668bdb3))
+
 ### 2.4.60 (2024-08-12)
 
 ### 2.4.59 (2024-05-08)
