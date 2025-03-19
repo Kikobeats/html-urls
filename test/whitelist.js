@@ -6,7 +6,7 @@ const getLinks = require('..')
 
 const { generateHtml } = require('./helpers')
 
-test.only('exclude exact match from whitelist', t => {
+test('exclude exact match from whitelist', t => {
   const urls = [
     'https://indiehackers.com/images/favicons/favicon',
     'https://www.indiehackers.com/forum/introduce-yourself-january-2018-411d4f5173',
