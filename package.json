@@ -28,9 +28,9 @@
     "urls"
   ],
   "dependencies": {
-    "@metascraper/helpers": "~5.46.1",
-    "cheerio": "~1.0.0",
-    "is-uri": "~1.2.6",
+    "@metascraper/helpers": "~5.47.2",
+    "cheerio": "~1.1.0",
+    "is-uri": "~1.2.7",
     "is-url-http": "~2.3.9",
     "lodash": "~4.17.21",
     "matcher": "~4.0.0"
