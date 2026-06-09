@@ -1,7 +1,7 @@
 'use strict'
 
 const { forEach } = require('lodash')
-const test = require('ava')
+const test = require('ava').default
 
 const getLinks = require('..')
 

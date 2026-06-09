@@ -5,25 +5,34 @@ on:
     branches:
       - master
 
+env:
+  SKIP_INSTALL_SIMPLE_GIT_HOOKS: true
+
 jobs:
   contributors:
     if: "${{ github.event.head_commit.message != 'build: contributors' }}"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: lts/*
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+        with:
+          version: latest
+      - name: Install
+        run: pnpm install --dangerously-allow-all-builds
       - name: Contributors
         run: |
-          git config --global user.email ${{ secrets.GIT_EMAIL }}
-          git config --global user.name ${{ secrets.GIT_USERNAME }}
-          npm run contributors
+          git config --global user.email "${{ secrets.GIT_EMAIL }}"
+          git config --global user.name "${{ secrets.GIT_USERNAME }}"
+          pnpm contributors
       - name: Push changes
         run: |
           git push origin ${{ github.head_ref }}
@@ -37,21 +46,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: lts/*
       - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: latest
       - name: Install
         run: pnpm install --dangerously-allow-all-builds
       - name: Test
-        run: npm test
+        run: pnpm test
       - name: Report
         run: npx c8 report --reporter=text-lcov > coverage/lcov.info
       - name: Coverage
@@ -63,7 +72,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          git config --global user.email ${{ secrets.GIT_EMAIL }}
-          git config --global user.name ${{ secrets.GIT_USERNAME }}
+          git config --global user.email "${{ secrets.GIT_EMAIL }}"
+          git config --global user.name "${{ secrets.GIT_USERNAME }}"
           git pull origin master
-          npm run release
+          pnpm release
