@@ -84,3 +84,14 @@ test('ignore invalid URLs', t => {
 
   t.snapshot(getLinks({ html }))
 })
+
+test('does not rewrite mailto:user@host into an HTTP url', t => {
+  const html = '<a href="mailto:admin@169.254.169.254">contact</a>'
+  t.deepEqual(getLinks({ html, url: 'https://public.example/' }), [
+    {
+      value: 'mailto:admin@169.254.169.254',
+      url: undefined,
+      uri: 'mailto:admin@169.254.169.254'
+    }
+  ])
+})
