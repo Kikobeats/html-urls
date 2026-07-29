@@ -37,6 +37,22 @@ const includes = (collection, fn) => findIndex(collection, fn) !== -1
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
   if (isEmpty(attr)) return undefined
+
+  // Absolute non-HTTP URIs must not be rewritten into fetchable HTTP URLs.
+  // normalize-url (via @metascraper/helpers) applies defaultProtocol `http:` and
+  // turns `mailto:user@host` into `http://host`, which crawlers would fetch.
+  if (isUri(attr) && !isHttpUrl(attr)) {
+    const normalized = normalizeUrl(attr)
+    if (!normalized || isHttpUrl(normalized)) {
+      return { value: attr, url: undefined, uri: attr }
+    }
+    return {
+      value: attr,
+      url: undefined,
+      uri: isUri(normalized) ? normalized : attr
+    }
+  }
+
   const absoluteUrl = url ? normalizeUrl(url, attr) : normalizeUrl(attr)
   return {
     value: attr,
