@@ -1,6 +1,6 @@
 {
   "name": "html-urls",
-  "description": "Get all links from a HTML markup",
+  "description": "Extract all href and src URLs from HTML markup for crawling, auditing, and link checks.",
   "homepage": "https://github.com/Kikobeats/html-urls",
   "version": "2.4.67",
   "main": "src/index.js",
@@ -18,11 +18,13 @@
     "url": "https://github.com/Kikobeats/html-urls/issues"
   },
   "keywords": [
+    "anchors",
+    "crawl",
+    "extract",
     "href",
-    "hrefs",
     "html",
-    "link",
     "links",
+    "parser",
     "src",
     "url",
     "urls"
