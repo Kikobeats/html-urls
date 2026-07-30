@@ -59,6 +59,16 @@ The normalized value as URI.
 
 See [examples](/examples) for more!
 
+## Detection
+
+URLs are detected from:
+
+- **URL attributes**, such as `href`, `src`, `action`, `poster` or `ping`. The full map of attribute → tags is exposed as `htmlUrls.TAGS`.
+- **Metadata tags**, meaning `<meta>` tags whose `name`, `property` or `itemprop` is a known URL holder (`og:image`, `twitter:player`, `thumbnailUrl`, …). The full list is exposed as `htmlUrls.METAS`.
+- **Redirects** declared as `<meta http-equiv="refresh" content="0; url=/next">`.
+
+Metadata keys are an explicit list because most `<meta>` content is not addressable: resolving `content="width=device-width"` against the page URL would fabricate a URL that does not exist.
+
 ## API
 
 ### htmlUrls([options])
