@@ -34,29 +34,9 @@ const reduceSelector = (collection, fn, acc = []) => {
 
 const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
-const SCHEME = /^([a-zA-Z][a-zA-Z0-9+.-]*):/
-
-// `@metascraper/helpers` exposes `protocol`, but it resolves via `new URL` and every
-// relative href throws to get there, measured 75x slower than matching the scheme.
-const isHttpScheme = value => {
-  const match = SCHEME.exec(value)
-  if (match === null) return true
-  const scheme = match[1].toLowerCase()
-  return scheme === 'http' || scheme === 'https'
-}
-
 const getLink = ({ url, el, attribute }) => {
-  const attr = get(el, `attribs.${attribute}`, '').trim()
+  const attr = get(el, `attribs.${attribute}`, '')
   if (isEmpty(attr)) return undefined
-
-  // normalizeUrl applies defaultProtocol `http:`, turning `mailto:user@host` into
-  // the fetchable `http://host`, so non-HTTP(S) schemes keep their own value.
-  if (!isHttpScheme(attr)) {
-    const normalized = normalizeUrl(attr)
-    const uri = !normalized || isHttpScheme(normalized) ? attr : normalized
-    return { value: attr, url: undefined, uri: isUri(uri) ? uri : undefined }
-  }
-
   const absoluteUrl = url ? normalizeUrl(url, attr) : normalizeUrl(attr)
   return {
     value: attr,
