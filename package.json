@@ -2,7 +2,7 @@
   "name": "html-urls",
   "description": "Extract all href and src URLs from HTML markup for crawling, auditing, and link checks.",
   "homepage": "https://github.com/Kikobeats/html-urls",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
