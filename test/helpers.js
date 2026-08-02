@@ -1,6 +1,6 @@
 'use strict'
 
-const generateHtml = ({ links = [], urls = [] }) => `
+const generateHtml = ({ links = [], urls = [], images = [] }) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +12,7 @@ const generateHtml = ({ links = [], urls = [] }) => `
 </head>
 <body>
   ${urls.map(url => `<a href="${url}"></a>`).join('\n')}
+  ${images.map(image => `<img src="${image}">`).join('\n')}
 </body>
 </html>
 `

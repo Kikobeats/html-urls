@@ -12,13 +12,10 @@ test('empty html generate empty output', t => {
 })
 
 test('keeps distinct unresolved relatives when url is omitted', t => {
-  const html = `
-    <a href="/r1"></a>
-    <a href="/r2"></a>
-    <img src="logo.png">
-    <a href="#x"></a>
-    <a href="https://a.com/ok"></a>
-  `
+  const html = generateHtml({
+    urls: ['/r1', '/r2', '#x', 'https://a.com/ok'],
+    images: ['logo.png']
+  })
 
   t.deepEqual(
     getLinks({ html }).map(({ value }) => value),
@@ -27,11 +24,7 @@ test('keeps distinct unresolved relatives when url is omitted', t => {
 })
 
 test('still dedupes identical unresolved relatives by value', t => {
-  const html = `
-    <a href="/same"></a>
-    <a href="/same"></a>
-    <img src="/same">
-  `
+  const html = generateHtml({ urls: ['/same', '/same'], images: ['/same'] })
 
   t.deepEqual(
     getLinks({ html }).map(({ value }) => value),

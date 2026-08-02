@@ -34,24 +34,15 @@ const reduceSelector = (collection, fn, acc = []) => {
 
 const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
-// Prefer normalized uri for dedupe; fall back to the raw attribute value so
-// unresolved relatives (uri === undefined) are not collapsed into one entry.
-const getDedupeKey = link => {
-  const uri = get(link, UID)
-  return uri === undefined ? get(link, 'value') : uri
-}
+const getDedupeKey = link => link.uri || link.value
 
-// normalizeUrl adds a trailing slash to bare hosts. Mirror that for exact
-// whitelist entries so `https://evil.com` still excludes `https://evil.com/`.
-// `*` is matcher's only wildcard: `?` and `[` are literal, so entries carrying
-// them (query strings) are exact and still need normalizing.
+// normalizeUrl adds a trailing slash to bare hosts, and `*` is matcher's only
+// wildcard, so exact entries need the same treatment the uri already got.
 const normalizeWhitelist = whitelist => {
   if (isEmpty(whitelist)) return whitelist
-  return whitelist.map(pattern => {
-    if (typeof pattern !== 'string') return pattern
-    if (pattern.includes('*')) return pattern
-    return normalizeUrl(pattern) || pattern
-  })
+  return whitelist.map(pattern =>
+    pattern.includes('*') ? pattern : normalizeUrl(pattern) || pattern
+  )
 }
 
 const getLink = ({ url, el, attribute }) => {
@@ -80,7 +71,7 @@ const createGetLinksByAttribute = ({ removeDuplicates }) => {
         const isAlreadyAdded = has(acc, key)
         if (isAlreadyAdded) return acc
         const uid = get(link, UID)
-        const match = !isEmpty(whitelist) && uid !== undefined && matcher([uid], concat(whitelist))
+        const match = !isEmpty(whitelist) && matcher([uid], concat(whitelist))
         return isEmpty(match) ? concat(acc, link) : acc
       },
       []
