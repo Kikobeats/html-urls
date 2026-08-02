@@ -34,6 +34,24 @@ const reduceSelector = (collection, fn, acc = []) => {
 
 const includes = (collection, fn) => findIndex(collection, fn) !== -1
 
+// Prefer normalized uri for dedupe; fall back to the raw attribute value so
+// unresolved relatives (uri === undefined) are not collapsed into one entry.
+const getDedupeKey = link => {
+  const uri = get(link, UID)
+  return uri === undefined ? get(link, 'value') : uri
+}
+
+// normalizeUrl adds a trailing slash to bare hosts. Mirror that for exact
+// whitelist entries so `https://evil.com` still excludes `https://evil.com/`.
+const normalizeWhitelist = whitelist => {
+  if (isEmpty(whitelist)) return whitelist
+  return whitelist.map(pattern => {
+    if (typeof pattern !== 'string') return pattern
+    if (/[*?[]/.test(pattern)) return pattern
+    return normalizeUrl(pattern) || pattern
+  })
+}
+
 const getLink = ({ url, el, attribute }) => {
   const attr = get(el, `attribs.${attribute}`, '')
   if (isEmpty(attr)) return undefined
@@ -47,7 +65,7 @@ const getLink = ({ url, el, attribute }) => {
 
 const createGetLinksByAttribute = ({ removeDuplicates }) => {
   const has = removeDuplicates
-    ? (acc, uid) => includes(acc, item => get(item, UID) === uid)
+    ? (acc, key) => includes(acc, item => getDedupeKey(item) === key)
     : () => false
 
   return ({ selector, attribute, url, whitelist }) =>
@@ -55,11 +73,12 @@ const createGetLinksByAttribute = ({ removeDuplicates }) => {
       selector,
       (acc, el) => {
         const link = getLink({ url, el, attribute })
-        const uid = get(link, UID)
         if (isEmpty(link)) return acc
-        const isAlreadyAdded = has(acc, uid)
+        const key = getDedupeKey(link)
+        const isAlreadyAdded = has(acc, key)
         if (isAlreadyAdded) return acc
-        const match = !isEmpty(whitelist) && matcher([uid], concat(whitelist))
+        const uid = get(link, UID)
+        const match = !isEmpty(whitelist) && uid !== undefined && matcher([uid], concat(whitelist))
         return isEmpty(match) ? concat(acc, link) : acc
       },
       []
@@ -68,7 +87,7 @@ const createGetLinksByAttribute = ({ removeDuplicates }) => {
 
 const createAdd = ({ removeDuplicates }) =>
   removeDuplicates
-    ? (acc, links) => uniqBy(concat(acc, links), UID)
+    ? (acc, links) => uniqBy(concat(acc, links), getDedupeKey)
     : (acc, links) => concat(acc, links)
 
 module.exports = ({
@@ -79,6 +98,7 @@ module.exports = ({
   cheerioOpts = {}
 } = {}) => {
   const $ = cheerio.load(html, cheerioOpts)
+  const normalizedWhitelist = normalizeWhitelist(whitelist)
 
   const add = createAdd({ removeDuplicates })
   const getLinksByAttribute = createGetLinksByAttribute({ removeDuplicates })
@@ -90,7 +110,7 @@ module.exports = ({
         selector: $(htmlTags.join(',')),
         attribute,
         url,
-        whitelist
+        whitelist: normalizedWhitelist
       })
       return add(acc, links)
     },

@@ -27,6 +27,17 @@ test('exclude exact match from whitelist', t => {
   ])
 })
 
+test('exclude exact host without trailing slash from whitelist', t => {
+  const urls = ['https://evil.com', 'https://ok.com/x']
+  const html = generateHtml({ urls })
+  const htmlUrls = getLinks({
+    html,
+    whitelist: ['https://evil.com']
+  }).map(({ uri }) => uri)
+
+  t.deepEqual(htmlUrls, ['https://ok.com/x'])
+})
+
 test('exclude pattern from whitelist', t => {
   const urls = [
     'https://indiehackers.com/images/favicons/favicon',
