@@ -43,11 +43,13 @@ const getDedupeKey = link => {
 
 // normalizeUrl adds a trailing slash to bare hosts. Mirror that for exact
 // whitelist entries so `https://evil.com` still excludes `https://evil.com/`.
+// `*` is matcher's only wildcard: `?` and `[` are literal, so entries carrying
+// them (query strings) are exact and still need normalizing.
 const normalizeWhitelist = whitelist => {
   if (isEmpty(whitelist)) return whitelist
   return whitelist.map(pattern => {
     if (typeof pattern !== 'string') return pattern
-    if (/[*?[]/.test(pattern)) return pattern
+    if (pattern.includes('*')) return pattern
     return normalizeUrl(pattern) || pattern
   })
 }
