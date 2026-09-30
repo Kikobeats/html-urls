@@ -3,8 +3,8 @@
 const { uniqBy, concat, isEmpty, reduce, get, findIndex } = require('lodash')
 const { normalizeUrl } = require('@metascraper/helpers')
 const isHttpUrl = require('is-url-http')
+const { matcher } = require('matcher')
 const cheerio = require('cheerio')
-const matcher = require('matcher')
 const isUri = require('is-uri')
 
 const UID = 'uri'
