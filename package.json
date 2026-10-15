@@ -30,7 +30,7 @@
     "urls"
   ],
   "dependencies": {
-    "@metascraper/helpers": "~5.58.4",
+    "@metascraper/helpers": "5",
     "cheerio": "~1.2.0",
     "is-uri": "~1.2.14",
     "is-url-http": "~2.3.13",
