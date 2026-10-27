@@ -1,13 +1,11 @@
 'use strict'
 
-const { concat, isEmpty } = require('lodash')
+const { isEmpty } = require('lodash')
 const { normalizeUrl } = require('@metascraper/helpers')
 const isHttpUrl = require('is-url-http')
 const { matcher } = require('matcher')
 const cheerio = require('cheerio')
 const isUri = require('is-uri')
-
-const UID = 'uri'
 
 /**
  * Originally picked from https://github.com/rehypejs/rehype-minify/blob/main/packages/html-url-attributes/index.js
@@ -49,8 +47,7 @@ const getLink = ({ url, el, attribute }) => {
 
 const createIsWhitelisted = whitelist => {
   if (isEmpty(whitelist)) return () => false
-  const patterns = concat(whitelist)
-  return uid => !isEmpty(matcher([uid], patterns))
+  return uid => !isEmpty(matcher([uid], whitelist))
 }
 
 module.exports = ({
@@ -72,7 +69,7 @@ module.exports = ({
       const link = getLink({ url, el: this, attribute })
       if (link === undefined) return
       const key = getDedupeKey(link)
-      if (seen?.has(key) || isWhitelisted(link[UID])) return
+      if (seen?.has(key) || isWhitelisted(link.uri)) return
       seen?.add(key)
       links.push(link)
     })

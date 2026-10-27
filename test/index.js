@@ -161,3 +161,33 @@ test('resolves relative and protocol relative URLs against the base url', t => {
 
   t.snapshot(getLinks({ html, url: 'https://example.com/dir/' }))
 })
+
+// "" is not a link. " " is a value and resolves to the base directory.
+test('omits empty url attributes and keeps other values', t => {
+  const html = [
+    '<a></a>',
+    '<a href=""></a>',
+    '<a href=" "></a>',
+    '<a href="0"></a>',
+    '<img src="">',
+    '<img src="https://example.com/pic.png">'
+  ].join('')
+
+  t.deepEqual(getLinks({ html, url: 'https://example.com/dir/' }), [
+    {
+      value: ' ',
+      url: 'https://example.com/dir/',
+      uri: 'https://example.com/dir/'
+    },
+    {
+      value: '0',
+      url: 'https://example.com/dir/0',
+      uri: 'https://example.com/dir/0'
+    },
+    {
+      value: 'https://example.com/pic.png',
+      url: 'https://example.com/pic.png',
+      uri: 'https://example.com/pic.png'
+    }
+  ])
+})
