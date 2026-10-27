@@ -1,3 +1,9 @@
+## 2.5.7 (2026-10-27)
+
+### Performance Improvements
+
+* dedupe links with a Set in a single pass ([#106](https://github.com/Kikobeats/html-urls/issues/106)) ([7f1a0b4](https://github.com/Kikobeats/html-urls/commit/7f1a0b46f9adf513f3a2bbe78de3d12792a6e0e7))
+
 ## 2.5.6 (2026-10-27)
 
 ## 2.5.5 (2026-08-13)
