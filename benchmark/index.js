@@ -65,8 +65,8 @@ const createCase = ({ links, removeDuplicates, iterations }) => {
 const CASES = [
   { links: 1000, removeDuplicates: false, iterations: 8 },
   { links: 1000, removeDuplicates: true, iterations: 8 },
-  { links: 16000, removeDuplicates: false, iterations: 1 },
-  { links: 16000, removeDuplicates: true, iterations: 1 }
+  { links: 8000, removeDuplicates: false, iterations: 1 },
+  { links: 8000, removeDuplicates: true, iterations: 1 }
 ]
 
 const measure = entry => {
