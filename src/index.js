@@ -1,6 +1,6 @@
 'use strict'
 
-const { uniqBy, concat, isEmpty, reduce, get, findIndex } = require('lodash')
+const { concat, isEmpty } = require('lodash')
 const { normalizeUrl } = require('@metascraper/helpers')
 const isHttpUrl = require('is-url-http')
 const { matcher } = require('matcher')
@@ -25,15 +25,6 @@ const TAGS = {
   src: ['audio', 'embed', 'iframe', 'img', 'input', 'script', 'source', 'track', 'video']
 }
 
-const reduceSelector = (collection, fn, acc = []) => {
-  collection.each(function () {
-    acc = fn(acc, this)
-  })
-  return acc
-}
-
-const includes = (collection, fn) => findIndex(collection, fn) !== -1
-
 const getDedupeKey = link => link.uri || link.value
 
 // normalizeUrl adds a trailing slash to bare hosts, and `*` is matcher's only
@@ -46,8 +37,8 @@ const normalizeWhitelist = whitelist => {
 }
 
 const getLink = ({ url, el, attribute }) => {
-  const attr = get(el, `attribs.${attribute}`, '')
-  if (isEmpty(attr)) return undefined
+  const attr = el.attribs?.[attribute]
+  if (!attr) return undefined
   const absoluteUrl = url ? normalizeUrl(url, attr) : normalizeUrl(attr)
   return {
     value: attr,
@@ -56,32 +47,11 @@ const getLink = ({ url, el, attribute }) => {
   }
 }
 
-const createGetLinksByAttribute = ({ removeDuplicates }) => {
-  const has = removeDuplicates
-    ? (acc, key) => includes(acc, item => getDedupeKey(item) === key)
-    : () => false
-
-  return ({ selector, attribute, url, whitelist }) =>
-    reduceSelector(
-      selector,
-      (acc, el) => {
-        const link = getLink({ url, el, attribute })
-        if (isEmpty(link)) return acc
-        const key = getDedupeKey(link)
-        const isAlreadyAdded = has(acc, key)
-        if (isAlreadyAdded) return acc
-        const uid = get(link, UID)
-        const match = !isEmpty(whitelist) && matcher([uid], concat(whitelist))
-        return isEmpty(match) ? concat(acc, link) : acc
-      },
-      []
-    )
+const createIsWhitelisted = whitelist => {
+  if (isEmpty(whitelist)) return () => false
+  const patterns = concat(whitelist)
+  return uid => !isEmpty(matcher([uid], patterns))
 }
-
-const createAdd = ({ removeDuplicates }) =>
-  removeDuplicates
-    ? (acc, links) => uniqBy(concat(acc, links), getDedupeKey)
-    : (acc, links) => concat(acc, links)
 
 module.exports = ({
   html = '',
@@ -93,22 +63,22 @@ module.exports = ({
   const $ = cheerio.load(html, cheerioOpts)
   const normalizedWhitelist = normalizeWhitelist(whitelist)
 
-  const add = createAdd({ removeDuplicates })
-  const getLinksByAttribute = createGetLinksByAttribute({ removeDuplicates })
+  const isWhitelisted = createIsWhitelisted(normalizedWhitelist)
+  const seen = removeDuplicates ? new Set() : undefined
+  const links = []
 
-  return reduce(
-    TAGS,
-    (acc, htmlTags, attribute) => {
-      const links = getLinksByAttribute({
-        selector: $(htmlTags.join(',')),
-        attribute,
-        url,
-        whitelist: normalizedWhitelist
-      })
-      return add(acc, links)
-    },
-    []
-  )
+  for (const [attribute, htmlTags] of Object.entries(TAGS)) {
+    $(htmlTags.join(',')).each(function () {
+      const link = getLink({ url, el: this, attribute })
+      if (link === undefined) return
+      const key = getDedupeKey(link)
+      if (seen?.has(key) || isWhitelisted(link[UID])) return
+      seen?.add(key)
+      links.push(link)
+    })
+  }
+
+  return links
 }
 
 module.exports.TAGS = TAGS
