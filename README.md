@@ -1,8 +1,8 @@
 # html-urls
 
-![Last version](https://img.shields.io/github/tag/Kikobeats/html-urls.svg?style=flat-square)
-[![Coverage Status](https://img.shields.io/coveralls/Kikobeats/html-urls.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/html-urls)
-[![NPM Status](https://img.shields.io/npm/dm/html-urls.svg?style=flat-square)](https://www.npmjs.org/package/html-urls)
+[![Last version](https://img.shields.io/github/v/tag/Kikobeats/html-urls?style=flat-square)](https://github.com/Kikobeats/html-urls/releases)
+[![Coverage Status](https://img.shields.io/coverallsCoverage/github/Kikobeats/html-urls?style=flat-square)](https://coveralls.io/github/Kikobeats/html-urls)
+[![NPM Status](https://img.shields.io/npm/dm/html-urls?style=flat-square)](https://www.npmjs.com/package/html-urls)
 
 > Get all URLs from a HTML markup. It's based on [W3C link checker](https://github.com/w3c/node-linkchecker).
 
