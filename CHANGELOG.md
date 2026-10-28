@@ -1,3 +1,9 @@
+## 2.5.9 (2026-10-28)
+
+### Bug Fixes
+
+* declare the real minimum Node.js version ([#109](https://github.com/Kikobeats/html-urls/issues/109)) ([f31fad1](https://github.com/Kikobeats/html-urls/commit/f31fad1210b9b8015f1be44bde0eeeb196f609f7))
+
 ## 2.5.8 (2026-10-28)
 
 ## 2.5.7 (2026-10-27)
